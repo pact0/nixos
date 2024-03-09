@@ -13,12 +13,15 @@
      (import ./hyprland)
      (import ./discord)
      (import ./zathura)
+     (import ./obs)
+     (import ./vscodium)
 
      (import ./shell)
      (import ./waybar)
      (import ./style)
   ];
   programs.firefox.enable = true;
+  programs.foot.enable = true;
 
 
 

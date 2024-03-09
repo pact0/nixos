@@ -3,6 +3,10 @@
     stylix.homeManagerModules.stylix
   ];
 
+  home.packages = [
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
+  ];
+
   stylix.image = pkgs.fetchurl {
    url = "https://images.hdqwalls.com/wallpapers/tengen-toppa-gurren-lagann-4k-1m.jpg";
    sha256 = "sha256-wplFIlIIYHTofJMuBLtpSWwrFyzz8ao1Gq4wGqgz7qY=";
@@ -17,20 +21,20 @@
 
     stylix.fonts = {
     monospace = {
-      name = "Intel One Mono";
-      package = pkgs.intel-one-mono;
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerdfonts;
     };
     serif = {
-      name = "Intel One Mono";
-      package = pkgs.intel-one-mono;
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerdfonts;
     };
     sansSerif = {
-      name = "Intel One Mono";
-      package = pkgs.intel-one-mono;
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerdfonts;
     };
     emoji = {
       name = "Noto Color Emoji";
-      package = pkgs.noto-fonts-emoji-blob-bin;
+      package = pkgs.nerdfonts;
     };
     sizes = {
       terminal = 12;
@@ -39,5 +43,7 @@
       desktop = 12;
     };
   };
+
+
 
 }
