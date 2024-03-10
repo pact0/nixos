@@ -1,12 +1,15 @@
-{pkgs, ...}: {
-  programs = {
-    obs-studio = {
-      enable = true;
-      plugins = [
-        pkgs.obs-studio-plugins.obs-gstreamer
-        pkgs.obs-studio-plugins.obs-pipewire-audio-capture
-        pkgs.obs-studio-plugins.wlrobs
-      ];
-    };
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-vaapi
+      obs-vkcapture
+      obs-pipewire-audio-capture
+    ];
   };
 }

@@ -25,7 +25,6 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-
     # DE
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -44,7 +43,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = {
@@ -65,19 +63,17 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
     username = "pacto";
-    theme = "gruvbox";
-    selfPkgs = import ./pkgs;
+    theme = "gruvbox-material-dark-medium";
+    # selfPkgs = import ./pkgs;
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Your custom packages and modifications, exported as overlays
     #overlays = import ./overlays {inherit inputs selfPkgs;};
 
-
-
     nixosConfigurations = import ./modules/core/default.nix {
-        inherit self nixpkgs inputs username outputs stylix ;
-      };
+      inherit self nixpkgs inputs username outputs stylix theme;
+    };
   };
 }

@@ -1,16 +1,22 @@
-{ pkgs, inputs, username, config, stylix, ...}:
-let
+{
+  pkgs,
+  inputs,
+  username,
+  theme,
+  config,
+  stylix,
+  ...
+}: let
   packages = with pkgs; [
     fish
     neovim-nightly
   ];
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in
-{
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+in {
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   nixpkgs = {
-    overlays =  [
+    overlays = [
       inputs.neovim-nightly-overlay.overlay
     ];
   };
@@ -18,15 +24,14 @@ in
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username stylix pkgs; };
+    extraSpecialArgs = {inherit inputs username stylix pkgs theme;};
     users.${username} = {
-      imports = [ (import ./../home) ];
+      imports = [(import ./../home)];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
     };
-
   };
 
   programs.fish.enable = true;
@@ -35,21 +40,24 @@ in
     isNormalUser = true;
     #initialPassword = "test";
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ]
-     ++ ifTheyExist [
-      "minecraft"
-      "network"
-      "wireshark"
-      "i2c"
-      "mysql"
-      "docker"
-      "podman"
-      "git"
-      "libvirtd"
-      "deluge"
-      "vboxsf" 
-    ];
+    extraGroups =
+      ["networkmanager" "wheel"]
+      ++ ifTheyExist [
+        "minecraft"
+        "network"
+        "wireshark"
+        "i2c"
+        "mysql"
+        "docker"
+        "podman"
+        "git"
+        "libvirtd"
+        "deluge"
+        "vboxsf"
+        "video"
+        "render"
+      ];
     shell = pkgs.fish;
   };
-  nix.settings.allowed-users = [ "${username}" ];
+  nix.settings.allowed-users = ["${username}"];
 }

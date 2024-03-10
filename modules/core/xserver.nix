@@ -1,17 +1,19 @@
-{ pkgs, username, ... }: 
 {
+  pkgs,
+  username,
+  ...
+}: {
   services.xserver = {
     enable = true;
-    xkb.layout = "us";
+    xkb.layout = "pl";
+    updateDbusEnvironment = true;
+    # displayManager.startx.enable = true;
     displayManager.autoLogin = {
       enable = true;
       user = "${username}";
     };
     libinput = {
       enable = true;
-      # mouse = {
-      #   accelProfile = "flat";
-      # };
     };
   };
   # To prevent getting stuck at shutdown

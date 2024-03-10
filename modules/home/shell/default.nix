@@ -1,5 +1,4 @@
-{...}: 
-let
+{pkgs, ...}: let
   aliases = {
     cat = "bat";
     htop = "btop";
@@ -27,21 +26,27 @@ let
     #cd = "z";
     q = "exit";
     grep = "rg";
+    rm = "rip";
+    undorm = "rip -u";
   };
-in
-{
+  # home.packages = with pkgs; [
+  # ];
+in {
   imports = [
-     (import ./fish { inherit aliases; })
-     (import ./bash.nix { inherit aliases; })
-     (import ./zsh.nix { inherit aliases; })
-     #(import ./starship.nix)
-     (import ./programs.nix)
+    (import ./fish {inherit aliases pkgs;})
+    (import ./bash.nix {inherit aliases;})
+    (import ./zsh.nix {inherit aliases;})
+    (import ./starship.nix)
+    (import ./programs.nix)
   ];
 
-
-  #programs.zoxide = {
-  #  enable = true;
-  #  enableZshIntegration = true;
-  #};
-
+  # programs.zoxide = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   enableBashIntegration = true;
+  #   enableFishIntegration = true;
+  #   options = [
+  #     "--cmd cd"
+  #   ];
+  # };
 }

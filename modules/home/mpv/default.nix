@@ -1,25 +1,22 @@
-{ pkgs, username, ... }: 
 {
+  pkgs,
+  username,
+  ...
+}: {
   programs.mpv = {
     enable = true;
 
-
     config = {
-        profile = "gpu-hq";
-        force-window = true;
-        ytdl-format = "bestvideo+bestaudio";
-        cache-default = 4000000;
+      profile = "gpu-hq";
+      force-window = true;
+      ytdl-format = "bestvideo+bestaudio";
+      cache-default = 4000000;
+      save-position-on-quit = "yes";
+      keep-open = "yes";
     };
-    #extraConfig = { 
-    #  init.defaultBranch = "master";
-    #  credential.helper = "store";
-    #};
   };
 
-   imports = [
+  imports = [
     (import ./keybindings.nix)
-    
-    ];
-
-  #home.packages = [ pkgs.gh ];
+  ];
 }

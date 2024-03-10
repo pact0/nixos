@@ -1,25 +1,31 @@
-{inputs,stylix, pkgs, ...}: {
+{
+  inputs,
+  stylix,
+  pkgs,
+  theme,
+  ...
+}: {
   imports = [
     stylix.homeManagerModules.stylix
   ];
 
   home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "JetBrainsMono"];})
   ];
 
   stylix.image = pkgs.fetchurl {
-   url = "https://images.hdqwalls.com/wallpapers/tengen-toppa-gurren-lagann-4k-1m.jpg";
-   sha256 = "sha256-wplFIlIIYHTofJMuBLtpSWwrFyzz8ao1Gq4wGqgz7qY=";
+    url = "https://images.hdqwalls.com/wallpapers/tengen-toppa-gurren-lagann-4k-1m.jpg";
+    sha256 = "sha256-wplFIlIIYHTofJMuBLtpSWwrFyzz8ao1Gq4wGqgz7qY=";
   };
 
-  stylix.opacity.applications = 0.3;
-  stylix.opacity.terminal = 0.3;
+  stylix.opacity.applications = 0.6;
+  stylix.opacity.terminal = 0.6;
 
-  stylix.targets.foot.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+  # https://github.com/tinted-theming/base16-schemes
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
   stylix.polarity = "dark";
 
-    stylix.fonts = {
+  stylix.fonts = {
     monospace = {
       name = "JetBrainsMono Nerd Font";
       package = pkgs.nerdfonts;
@@ -43,7 +49,4 @@
       desktop = 12;
     };
   };
-
-
-
 }

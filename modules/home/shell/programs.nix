@@ -1,16 +1,23 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Collection of useful CLI apps
   home.packages = with pkgs; [
     # Command Line
-    disfetch neofetch lolcat cowsay onefetch starfetch
-    cava
-    gnugrep gnused
+    disfetch
+    neofetch
+    lolcat
+    cowsay
+    onefetch
+    starfetch
+    gnugrep
+    gnused
     killall
     libnotify
     timer
-    bat eza fd bottom ripgrep
+    bat
+    eza
+    fd
+    bottom
+    ripgrep
     rsync
     tmux
     htop
@@ -21,6 +28,7 @@
     fzf
     pandoc
     pciutils
+    lazygit
+    rm-improved
   ];
-
 }

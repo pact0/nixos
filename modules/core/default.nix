@@ -1,17 +1,24 @@
-{ inputs, nixpkgs, self, username, outputs, stylix, ...}:
-let
+{
+  inputs,
+  nixpkgs,
+  self,
+  username,
+  theme,
+  outputs,
+  stylix,
+  ...
+}: let
   system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
   };
   lib = nixpkgs.lib;
-in
-{
+in {
   nixos = nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit self inputs username outputs stylix; };
-    modules =[ 
-      (import ./virtualization.nix)
+    specialArgs = {inherit self inputs username outputs stylix theme;};
+    modules = [
+      #(import ./virtualization.nix)
       (import ./bootloader.nix)
       (import ./services.nix)
       (import ./hardware.nix)
@@ -20,12 +27,13 @@ in
       (import ./networking.nix)
       (import ./sound.nix)
       (import ../../nixos/configuration.nix)
+      (import ./streamdeck.nix)
 
       (import ./docker.nix)
-      (import ./hyprpaper.nix)
       (import ./wayland.nix)
       (import ./xserver.nix)
-
+      (import ./steam.nix)
+      (import ./remote-storage.nix)
     ];
   };
 }
