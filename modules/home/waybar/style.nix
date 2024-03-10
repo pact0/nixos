@@ -1,4 +1,4 @@
-{...}: {
+{stylix, ...}: {
   programs.waybar.style = ''
     * {
         border: none;

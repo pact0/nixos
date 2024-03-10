@@ -45,5 +45,4 @@
       PasswordAuthentication = false;
     };
   };
-
 }

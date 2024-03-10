@@ -5,6 +5,7 @@
   theme,
   config,
   stylix,
+  colors,
   ...
 }: let
   packages = with pkgs; [
@@ -15,16 +16,10 @@
 in {
   imports = [inputs.home-manager.nixosModules.home-manager];
 
-  nixpkgs = {
-    overlays = [
-      inputs.neovim-nightly-overlay.overlay
-    ];
-  };
-
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs username stylix pkgs theme;};
+    extraSpecialArgs = {inherit inputs username stylix pkgs theme colors;};
     users.${username} = {
       imports = [(import ./../home)];
       home.username = "${username}";
@@ -35,13 +30,19 @@ in {
   };
 
   programs.fish.enable = true;
+  programs.zsh.enable = true;
+
+  users.groups.media = {
+    name = "media";
+    gid = 1001;
+  };
 
   users.users.${username} = {
     isNormalUser = true;
     #initialPassword = "test";
     description = "${username}";
     extraGroups =
-      ["networkmanager" "wheel"]
+      ["networkmanager" "wheel" "media"]
       ++ ifTheyExist [
         "minecraft"
         "network"
@@ -57,7 +58,20 @@ in {
         "video"
         "render"
       ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
   nix.settings.allowed-users = ["${username}"];
+
+  environment.variables.EDITOR = "nvim";
+  environment.variables.VISUAL = "nvim";
+  environment.variables.BROWSER = "firefox";
+  environment.variables.READER = "zathura";
+  environment.variables.TERMINAL = "kitty";
+  # environment.variables.FILE = "nnn";
+  environment.variables.PAGER = "bat";
+
+  environment.systemPackages = [
+    pkgs.nodePackages.typescript
+    # pkgs.nodePackages.typescript-styled-plugin
+  ];
 }

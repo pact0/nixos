@@ -27,11 +27,11 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     # GTK_USE_PORTAL = "1";
 
-    # test
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
     BROWSER = "firefox";
+    DEFAULT_BROWSER = "firefox";
   };
 }

@@ -13,32 +13,7 @@
     (import ./monitors.nix)
     (import ./windowrules.nix)
     (import ./sww)
+    (import ./wlogout)
+    (import ./pyprland.nix)
   ];
-
-  home.packages = [
-    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-  ];
-
-  home.file.".config/hypr/hyprpaper.conf".text =
-    ''    
-      preload = ''
-    + config.stylix.image
-    + ''    
-    
-      wallpaper = DP-1,''
-    + config.stylix.image
-    + ''    
-    
-      wallpaper = HDMI-A-1,''
-    + config.stylix.image
-    + ''    
-    
-      wallpaper = DP-2,''
-    + config.stylix.image
-    + ''    
-    
-      wallpaper = DP-3,''
-    + config.stylix.image
-    + ''
-    '';
 }

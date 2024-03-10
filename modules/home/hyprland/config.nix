@@ -55,9 +55,9 @@
         rounding = "5";
         # rounding = 12
 
-        active_opacity = "0.90";
-        inactive_opacity = "0.90";
-        fullscreen_opacity = "1.0";
+        # active_opacity = "0.90";
+        # inactive_opacity = "0.90";
+        # fullscreen_opacity = "1.0";
 
         blur = {
           enabled = "true";

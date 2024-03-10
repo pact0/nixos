@@ -7,12 +7,10 @@
     shellAliases = aliases;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "fzf" "zoxide"];
+      plugins = ["git" "fzf" "zoxide" "docker" "docker-compose" "history-substring-search" "vi-mode" "zsh-interactive-cd"];
     };
-    #initExtra = ''
-    #PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-    # %F{green}→%f "
-    #RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-    #'';
+    # initExtra = ''
+    #   VI_MODE_SET_CURSOR=true
+    # '';
   };
 }

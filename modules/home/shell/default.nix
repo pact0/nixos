@@ -4,6 +4,7 @@
     htop = "btop";
     top = "btop";
     fd = "fd -Lu";
+    v = "nvim";
     #nixos-rebuild = "systemd-run --no-ask-password --uid=0 --system --scope -p MemoryLimit=16000M -p CPUQuota=60% nixos-rebuild";
     rebuild = "sudo nixos-rebuild switch --show-trace --flake .#nixos";
     installed = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq | cat";
@@ -19,7 +20,7 @@
     ll = "eza -l --icons";
 
     n = "neofetch";
-    nf = ''nvim (FZF_DEFAULT_COMMAND='fd' FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'" fzf --height 60% --layout reverse --info inline --border --color 'border:#b48ead')'';
+    # nf = ''nvim (FZF_DEFAULT_COMMAND='fd' FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'" fzf --height 60% --layout reverse --info inline --border')'';
     g = "git";
 
     c = "clear";
@@ -29,8 +30,6 @@
     rm = "rip";
     undorm = "rip -u";
   };
-  # home.packages = with pkgs; [
-  # ];
 in {
   imports = [
     (import ./fish {inherit aliases pkgs;})
@@ -38,15 +37,23 @@ in {
     (import ./zsh.nix {inherit aliases;})
     (import ./starship.nix)
     (import ./programs.nix)
+    (import ./scripts)
   ];
 
-  # programs.zoxide = {
-  #   enable = true;
-  #   enableZshIntegration = true;
-  #   enableBashIntegration = true;
-  #   enableFishIntegration = true;
-  #   options = [
-  #     "--cmd cd"
-  #   ];
-  # };
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    tmux = {
+      enableShellIntegration = true;
+    };
+  };
 }

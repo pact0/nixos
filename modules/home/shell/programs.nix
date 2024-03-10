@@ -2,12 +2,6 @@
   # Collection of useful CLI apps
   home.packages = with pkgs; [
     # Command Line
-    disfetch
-    neofetch
-    lolcat
-    cowsay
-    onefetch
-    starfetch
     gnugrep
     gnused
     killall
@@ -19,16 +13,31 @@
     bottom
     ripgrep
     rsync
-    tmux
     htop
     hwinfo
     unzip
     brightnessctl
     w3m
-    fzf
     pandoc
     pciutils
     lazygit
     rm-improved
   ];
+
+  programs.bat = {
+    enable = true;
+    config = {
+      pager = "less -FR";
+    };
+  };
+
+  programs.btop = {
+    enable = true;
+
+    settings = {
+      #color_theme = "dracula";
+      theme_background = false;
+      update_ms = 500;
+    };
+  };
 }

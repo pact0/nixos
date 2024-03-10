@@ -34,6 +34,7 @@ in {
       (import ./xserver.nix)
       (import ./steam.nix)
       (import ./remote-storage.nix)
+      (import ./firejail)
     ];
   };
 }

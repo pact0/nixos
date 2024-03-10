@@ -1,11 +1,10 @@
 {
   pkgs,
   inputs,
+  colors,
   ...
 }: {
   imports = [
-    (import ./bat)
-    (import ./btop)
     (import ./git)
     (import ./nvim)
     (import ./kitty)
@@ -24,6 +23,9 @@
     (import ./wofi)
     (import ./waybar)
     (import ./style)
+    (import ./tmux)
+
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   home.packages = with pkgs; [
@@ -33,65 +35,58 @@
     winetricks
     inputs.nix-gaming.packages.${pkgs.system}.proton-ge
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    brave
 
     ## Doom
     crispy-doom
+    vesktop
+
+    bitwarden
+    qbittorrent
+
+    # inputs.nixvim.packages.${pkgs.system}.default
   ];
 
   xdg.mimeApps = {
     enable = true;
-    # associations.added = {
-    #   "application/pdf" = ["firefox.desktop" "brave-browser.desktop" "zathura"];
-    #   "image/png" = [
-    #     "sxiv.desktop"
-    #     "gimp.desktop"
-    #   ];
-
-    #   "inode/directory" = "ranger.desktop";
-    # };
-    # defaultApplications = {
-    #   "application/pdf" = ["firefox.desktop"];
-    #   "image/png" = [
-    #     "sxiv.desktop"
-    #     "gimp.desktop"
-    #   ];
-
-    #   "text/html" = "firefox.desktop";
-    #   "x-scheme-handler/http" = "firefox.desktop";
-    #   "x-scheme-handler/https" = "firefox.desktop";
-    #   "x-scheme-handler/about" = "firefox.desktop";
-    #   "x-scheme-handler/unknown" = "firefox.desktop";
-    # };
+    associations.added = {
+      "application/pdf" = ["zathura"];
+      "video/mp4" = ["mpv.desktop"];
+      "image/png" = ["imv"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "inode/directory" = "nvim";
+    };
+    defaultApplications = {
+      "application/pdf" = ["zathura"];
+      "application/x-extension-htm" = ["firefox.desktop"];
+      "application/x-extension-html" = ["firefox.desktop"];
+      "application/x-extension-shtml" = ["firefox.desktop"];
+      "application/x-extension-xht" = ["firefox.desktop"];
+      "application/x-extension-xhtml" = ["firefox.desktop"];
+      "application/x-www-browser" = ["firefox.desktop"];
+      "application/xhtml+xml" = ["firefox.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "x-scheme-handler/chrome" = ["firefox.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "x-scheme-handler/ftp" = ["firefox.desktop"];
+      "x-scheme-handler/about" = ["firefox.desktop"];
+      "x-scheme-handler/unknown" = ["firefox.desktop"];
+      "x-scheme-handler/webcal" = ["firefox.desktop"];
+      "x-www-browser" = ["firefox.desktop"];
+      "video/mp4" = ["mpv.desktop"];
+      "image/png" = ["imv"];
+      "inode/directory" = "nvim";
+    };
   };
 
-  #   xdg.mimeApps = {
-  #     enable = true;
-  #     associations.added = {
-  #       "application/pdf" = ["firefox.desktop"];
-  #       "video/mp4" = ["mpv.desktop"];
-  #       "x-scheme-handler/http" = ["firefox.desktop"];
-  #       "x-scheme-handler/https" = ["firefox.desktop"];
-  #       "text/html" = ["firefox.desktop"];
-  #     };
-  #     defaultApplications = {
-  #       "application/pdf" = ["firefox.desktop"];
-  #       "application/x-extension-htm" = ["firefox.desktop"];
-  #       "application/x-extension-html" = ["firefox.desktop"];
-  #       "application/x-extension-shtml" = ["firefox.desktop"];
-  #       "application/x-extension-xht" = ["firefox.desktop"];
-  #       "application/x-extension-xhtml" = ["firefox.desktop"];
-  #       "application/x-www-browser" = ["firefox.desktop"];
-  #       "application/xhtml+xml" = ["firefox.desktop"];
-  #       "text/html" = ["firefox.desktop"];
-  #       "x-scheme-handler/chrome" = ["firefox.desktop"];
-  #       "x-scheme-handler/http" = ["firefox.desktop"];
-  #       "x-scheme-handler/https" = ["firefox.desktop"];
-  #       "x-scheme-handler/ftp" = ["firefox.desktop"];
-  #       "x-scheme-handler/about" = ["firefox.desktop"];
-  #       "x-scheme-handler/unknown" = ["firefox.desktop"];
-  #       "x-scheme-handler/webcal" = ["firefox.desktop"];
-  #       "x-www-browser" = ["firefox.desktop"];
-  #       "video/mp4" = ["mpv.desktop"];
-  #     };
-  #   };
+  services.gammastep = {
+    enable = true;
+    tray = true;
+    provider = "manual";
+    latitude = 51.9194;
+    longitude = 19.1451;
+  };
 }

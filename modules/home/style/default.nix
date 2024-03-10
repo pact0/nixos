@@ -4,13 +4,15 @@
   pkgs,
   theme,
   ...
-}: {
+}: let
+  font = "FiraCode Nerd Font";
+in {
   imports = [
     stylix.homeManagerModules.stylix
   ];
 
   home.packages = [
-    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "JetBrainsMono"];})
+    (pkgs.nerdfonts.override {fonts = ["FiraCode" "DroidSansMono" "JetBrainsMono" "Iosevka" "Hack"];})
   ];
 
   stylix.image = pkgs.fetchurl {
@@ -18,8 +20,11 @@
     sha256 = "sha256-wplFIlIIYHTofJMuBLtpSWwrFyzz8ao1Gq4wGqgz7qY=";
   };
 
-  stylix.opacity.applications = 0.6;
-  stylix.opacity.terminal = 0.6;
+  stylix.opacity.applications = 0.8;
+  stylix.opacity.terminal = 0.4;
+
+  stylix.targets.nixvim.transparent_bg.main = false;
+  stylix.targets.nixvim.transparent_bg.sign_column = false;
 
   # https://github.com/tinted-theming/base16-schemes
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
@@ -27,15 +32,15 @@
 
   stylix.fonts = {
     monospace = {
-      name = "JetBrainsMono Nerd Font";
+      name = "${font}";
       package = pkgs.nerdfonts;
     };
     serif = {
-      name = "JetBrainsMono Nerd Font";
+      name = "${font}";
       package = pkgs.nerdfonts;
     };
     sansSerif = {
-      name = "JetBrainsMono Nerd Font";
+      name = "${font}";
       package = pkgs.nerdfonts;
     };
     emoji = {

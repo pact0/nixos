@@ -9,7 +9,7 @@
     nix-prefetch-github
     pipx # Install Python applications in isolated environments
     #prismlauncher                     # minecraft launcher
-    rnix-lsp
+    # rnix-lsp
     soundwireserver # pass audio to android phone
     youtube-dl
     gnome.zenity
