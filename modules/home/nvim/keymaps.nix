@@ -174,6 +174,23 @@
           desc = "Horizontal resize";
         };
       }
+
+      {
+        key = "<leader>qs";
+        action = "<cmd>lua require(\" persistence \").load()<cr>";
+        mode = "n";
+        options = {
+          desc = "restore the session for the current directory";
+        };
+      }
+      {
+        key = "<leader>ql";
+        action = "<cmd>lua require(\"persistence\").load({ last = true })<cr>";
+        mode = "n";
+        options = {
+          desc = "restore the last session";
+        };
+      }
     ];
   };
 }

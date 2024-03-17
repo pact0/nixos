@@ -22,8 +22,28 @@
     base0E = "${config.lib.stylix.colors.base0E}";
     base0F = "${config.lib.stylix.colors.base0F}";
   };
+
+  highlight = [
+    "RainbowRed"
+    "RainbowYellow"
+    "RainbowBlue"
+    "RainbowOrange"
+    "RainbowGreen"
+    "RainbowViolet"
+    "RainbowCyan"
+  ];
 in {
   programs.nixvim = {
+    highlight = {
+      RainbowRed.fg = "#${colors.base08}";
+      RainbowYellow.fg = "#${colors.base09}";
+      RainbowBlue.fg = "#${colors.base0A}";
+      RainbowOrange.fg = "#${colors.base0B}";
+      RainbowGreen.fg = "#${colors.base0C}";
+      RainbowViolet.fg = "#${colors.base0D}";
+      RainbowCyan.fg = "#${colors.base0E}";
+    };
+
     plugins.multicursors.enable = false;
 
     plugins.illuminate = {
@@ -40,6 +60,8 @@ in {
 
     plugins = {
       image.enable = true;
+      persistence.enable = true;
+
       trouble = {
         enable = true;
       };
@@ -48,6 +70,7 @@ in {
       };
       rainbow-delimiters = {
         enable = true;
+        highlight = highlight;
       };
 
       nvim-colorizer.enable = true;
@@ -66,84 +89,50 @@ in {
       lazy = {
         enable = true;
       };
-    };
-
-    plugins.indent-blankline = {
-      enable = true;
-    };
-
-    extraPlugins = with pkgs.vimPlugins; [
-      {
-        plugin = comment-nvim;
-        config = "lua require(\"Comment\").setup()";
-      }
-    ];
-
-    extraConfigLua = ''
-      require('Comment').setup {
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-      }
-
-      require("ibl").setup()
-
-      local indent_blankline_augroup = vim.api.nvim_create_augroup("indent_blankline_augroup", { clear = true })
-      vim.api.nvim_create_autocmd("ModeChanged", {
-        group = indent_blankline_augroup,
-        pattern = "[vV\x16]*:*",
-        command = "IBLEnable",
-        desc = "Enable indent-blankline when exiting visual mode",
-      })
-
-      vim.api.nvim_create_autocmd("ModeChanged", {
-        group = indent_blankline_augroup,
-        pattern = "*:[vV\x16]*",
-        command = "IBLDisable",
-        desc = "Disable indent-blankline when exiting visual mode",
-      })
-
-      local highlight = {
-        "RainbowRed",
-        "RainbowYellow",
-        "RainbowBlue",
-        "RainbowOrange",
-        "RainbowGreen",
-        "RainbowViolet",
-        "RainbowCyan",
-      }
-      local hooks = require("ibl.hooks")
-
-      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#${colors.base08}" })
-        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#${colors.base09}" })
-        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#${colors.base0A}" })
-        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#${colors.base0B}" })
-        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#${colors.base0C}" })
-        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#${colors.base0D}" })
-        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#${colors.base0E}" })
-      end)
-
-      vim.g.rainbow_delimiters = { highlight = highlight }
-
-      require("ibl").setup({
-        scope = {
-          highlight = highlight,
-          show_start = true,
-        },
+      comment-nvim = {
+        enable = true;
+        preHook = "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
+      };
+      indent-blankline = {
+        enable = true;
         indent = {
-          char = "┊",
-        },
-        exclude =  {
-          filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-          --buftypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-        },
+          char = "┊";
+        };
         whitespace = {
-          remove_blankline_trail = false,
-        },
-      })
-
-      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-
-    '';
+          removeBlanklineTrail = false;
+        };
+        scope = {
+          enabled = true;
+          showStart = false;
+          showExactScope = false;
+          highlight = highlight;
+        };
+        exclude = {
+          buftypes = [
+            "terminal"
+            "nofile"
+            "quickfix"
+            "prompt"
+          ];
+          filetypes = [
+            "lspinfo"
+            "packer"
+            "checkhealth"
+            "help"
+            "man"
+            "gitcommit"
+            "TelescopePrompt"
+            "TelescopeResults"
+            "\'\'"
+            "help"
+            "alpha"
+            "dashboard"
+            "neo-tree"
+            "Trouble"
+            "lazy"
+          ];
+        };
+      };
+    };
   };
 }

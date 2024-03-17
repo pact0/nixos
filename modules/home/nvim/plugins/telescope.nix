@@ -159,26 +159,6 @@
       }
     ];
 
-    # extraConfigLua = ''
-    #   require("telescope").setup{
-    #     pickers = {
-    #       colorscheme = {
-    #         enable_preview = true
-    #       },
-
-    #       live_grep = {
-    #         mappings = {
-    #             i = { ["<c-f>"] = actions.to_fuzzy_refine },
-    #         },
-    #       }
-
-    #     }
-    #   }
-
-    #   --require("telescope").load_extension("zoxide")
-
-    # '';
-
     extraConfigLua = ''
       local telescope = require("telescope")
             local actions = require("telescope.actions")
@@ -349,8 +329,6 @@
             telescope.load_extension("media_files")
             telescope.load_extension("frecency")
             telescope.load_extension("zoxide")
-
-
     '';
   };
 }

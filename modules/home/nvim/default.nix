@@ -21,6 +21,7 @@
       registrations = {
         "<leader>h" = "Harpoon";
         "<leader>c" = "Code Actions";
+        "<leader>g" = "Git";
       };
     };
   };
