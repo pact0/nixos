@@ -69,9 +69,4 @@ in {
   environment.variables.TERMINAL = "kitty";
   environment.variables.FILE = "nnn";
   environment.variables.PAGER = "bat";
-
-  environment.systemPackages = [
-    pkgs.nodePackages.typescript
-    # pkgs.nodePackages.typescript-styled-plugin
-  ];
 }
