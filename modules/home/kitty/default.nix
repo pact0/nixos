@@ -16,6 +16,9 @@
       inactive_tab_font_style = "normal";
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
+
+      # allow_remote_control = "yes";
+      # listen_on = "unix:@kitty";
     };
   };
 }

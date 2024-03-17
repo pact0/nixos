@@ -67,7 +67,7 @@ in {
   environment.variables.BROWSER = "firefox";
   environment.variables.READER = "zathura";
   environment.variables.TERMINAL = "kitty";
-  # environment.variables.FILE = "nnn";
+  environment.variables.FILE = "nnn";
   environment.variables.PAGER = "bat";
 
   environment.systemPackages = [

@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   wayland.windowManager.hyprland = {
     settings = {
       input = {
@@ -55,9 +55,9 @@
         rounding = "5";
         # rounding = 12
 
-        # active_opacity = "0.90";
-        # inactive_opacity = "0.90";
-        # fullscreen_opacity = "1.0";
+        # active_opacity = "${config.lib.stylix.opacity.applications}";
+        # inactive_opacity = "${config.lib.stylix.opacity.applications}";
+        # fullscreen_opacity = "${config.lib.stylix.opacity.applications}";
 
         blur = {
           enabled = "true";

@@ -21,6 +21,8 @@ in {
   };
 
   stylix.opacity.applications = 0.8;
+  stylix.opacity.desktop = 0.8;
+
   stylix.opacity.terminal = 0.4;
 
   stylix.targets.nixvim.transparent_bg.main = false;

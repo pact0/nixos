@@ -42,6 +42,10 @@ in {
       RainbowGreen.fg = "#${colors.base0C}";
       RainbowViolet.fg = "#${colors.base0D}";
       RainbowCyan.fg = "#${colors.base0E}";
+      TreesitterContextBottom.bg = "#${colors.base03}";
+      NotifyBackground.bg = "#000000";
+      # TreesitterContextSeparator.bg = "#${colors.base0F}";
+      # TreesitterContextLineNumberBottom.fg = "";
     };
 
     plugins.multicursors.enable = false;
@@ -73,7 +77,18 @@ in {
         highlight = highlight;
       };
 
-      nvim-colorizer.enable = true;
+      nvim-colorizer = {
+        enable = true;
+        userDefaultOptions = {
+          css = true;
+          css_fn = true;
+          hsl_fn = true;
+          rgb_fn = true;
+          tailwind = true;
+          names = true;
+          mode = "background"; # virtualtext foreground background
+        };
+      };
 
       nvim-autopairs = {
         enable = true;

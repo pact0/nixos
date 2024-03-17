@@ -34,7 +34,7 @@
       enable = true;
 
       servers = {
-        tsserver.enable = true;
+        tsserver.enable = false;
 
         lua-ls = {
           enable = true;

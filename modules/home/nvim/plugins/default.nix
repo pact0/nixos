@@ -3,7 +3,8 @@
     (import ./tmux.nix)
     (import ./telescope.nix)
     (import ./neo-tree.nix)
-    # (import ./toggleterm.nix)
+    (import ./toggleterm.nix)
+    (import ./flash.nix)
     (import ./extra.nix)
 
     (import ./lsp)

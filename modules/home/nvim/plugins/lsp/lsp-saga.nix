@@ -25,7 +25,7 @@
         enable = true; # Breadcrumbs
       };
       codeAction = {
-        extendGitSigns = false;
+        extendGitSigns = true;
         showServerName = true;
         onlyInCursor = true;
         numShortcut = true;

@@ -37,6 +37,7 @@ in {
     (import ./zsh.nix {inherit aliases;})
     (import ./starship.nix)
     (import ./programs.nix)
+    (import ./nnn.nix)
     (import ./scripts)
   ];
 
