@@ -63,6 +63,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     stylix,
     home-manager,
     ...
@@ -107,7 +108,7 @@
     #overlays = import ./overlays {inherit inputs selfPkgs;};
 
     nixosConfigurations = import ./modules/core/default.nix {
-      inherit self nixpkgs inputs username outputs stylix theme;
+      inherit self nixpkgs inputs username outputs stylix theme nixpkgs-unstable;
     };
   };
 }

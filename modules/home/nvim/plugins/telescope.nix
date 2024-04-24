@@ -17,9 +17,6 @@
         ui-select = {
           enable = true;
         };
-        frecency = {
-          enable = true;
-        };
         media_files = {
           enable = true;
         };
@@ -310,25 +307,12 @@
                     },
                   }),
                 },
-                frecency = {
-                  default_workspace = "CWD",
-                  show_scores = true,
-                  show_unindexed = true,
-                  disable_devicons = false,
-                  ignore_patterns = {
-                    "*.git/*",
-                    "*/tmp/*",
-                    "*/lua-language-server/*",
-                  },
-                },
               },
             })
             telescope.load_extension("fzf")
             telescope.load_extension("ui-select")
             telescope.load_extension("undo")
             telescope.load_extension("media_files")
-            telescope.load_extension("frecency")
-            telescope.load_extension("zoxide")
     '';
   };
 }

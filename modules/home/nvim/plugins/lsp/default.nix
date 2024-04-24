@@ -21,13 +21,13 @@
 
     plugins.lspkind = {
       enable = true;
-      symbolMap = {
-        Copilot = "";
-      };
-      extraOptions = {
-        maxwidth = 50;
-        ellipsis_char = "...";
-      };
+      # symbolMap = {
+      #   Copilot = "";
+      # };
+      # extraOptions = {
+      #   maxwidth = 50;
+      #   ellipsis_char = "...";
+      # };
     };
 
     plugins.lsp = {
@@ -55,6 +55,7 @@
         clangd = {enable = true;};
         cmake = {enable = true;};
         dockerls = {enable = true;};
+        tailwindcss = {enable = true;};
 
         # rnix-lsp = {enable = true;};
       };
@@ -66,7 +67,7 @@
             action = "definition";
             desc = "Goto Definition";
           };
-          gr = {
+          gR = {
             action = "references";
             desc = "Goto References";
           };
@@ -119,6 +120,26 @@
         };
       };
     };
+
+    keymaps = [
+      # Harpoon
+      {
+        key = "]e";
+        action = "<cmd>lua vim.diagnostic.goto_next( {severity=vim.diagnostic.severity.ERROR, wrap = true} )<cr>";
+        mode = "n";
+        options = {
+          desc = "Next Error Diagnostic";
+        };
+      }
+      {
+        key = "[e";
+        action = "<cmd>lua vim.diagnostic.goto_prev( {severity=vim.diagnostic.severity.ERROR, wrap = true} )<cr>";
+        mode = "n";
+        options = {
+          desc = "Previous Error Diagnostic";
+        };
+      }
+    ];
 
     extraConfigLua = ''
       local _border = "rounded"

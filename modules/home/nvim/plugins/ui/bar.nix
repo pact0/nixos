@@ -39,22 +39,11 @@
             # };
           }
 
-          {
-            name = "diff";
-          }
+          # {
+          #   name = "diff";
+          # }
         ];
         lualine_c = [
-          {
-            name = "diagnostic";
-            extraConfig = {
-              symbols = {
-                error = " ";
-                warn = " ";
-                info = " ";
-                hint = "󰝶 ";
-              };
-            };
-          }
           {
             name = "filetype";
             separator = {
@@ -78,6 +67,17 @@
                 unnamed = "";
               };
             };
+          }
+          {
+            name = "diagnostics";
+            # extraConfig = {
+            #   symbols = {
+            #     error = " ";
+            #     warn = " ";
+            #     info = " ";
+            #     hint = "󰝶 ";
+            #   };
+            # };
           }
         ];
         lualine_x = [

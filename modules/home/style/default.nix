@@ -23,7 +23,7 @@ in {
   stylix.opacity.applications = 0.8;
   stylix.opacity.desktop = 0.8;
 
-  stylix.opacity.terminal = 0.4;
+  stylix.opacity.terminal = 0.7;
 
   stylix.targets.nixvim.transparent_bg.main = false;
   stylix.targets.nixvim.transparent_bg.sign_column = false;

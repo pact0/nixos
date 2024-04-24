@@ -10,6 +10,7 @@
     bat
     eza
     fd
+    zip
     bottom
     ripgrep
     rsync

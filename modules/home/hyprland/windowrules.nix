@@ -23,8 +23,8 @@ in {
 
         "opacity 1.0 1.0,class:^(wofi)$"
 
-        "monitor DP-1,title:^(Hearthstone)$"
-        "center,title:^(Hearthstone)$"
+        # "monitor DP-1,title:^(Hearthstone)$"
+        # "center,title:^(Hearthstone)$"
       ];
     };
   };

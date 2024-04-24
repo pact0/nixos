@@ -7,8 +7,11 @@
     (import ./bar.nix)
   ];
   programs.nixvim = {
+
+
+
     plugins.noice = {
-      enable = true;
+      enable = false;
       notify = {
         enabled = false;
       };
@@ -43,7 +46,7 @@
     };
 
     plugins.notify = {
-      enable = true;
+      enable = false;
       #   backgroundColour = "#000000";
       fps = 60;
       render = "default";
@@ -51,28 +54,33 @@
       topDown = true;
     };
 
-    extraConfigLua = ''
-      local notify = require("notify")
+    plugins.nvim-ufo = {
+      enable = true;
+      enableGetFoldVirtText = true;
+    };
 
-      local filtered_message = { "No information available" }
+    # extraConfigLua = ''
+    #   local notify = require("notify")
 
-      -- Override notify function to filter out messages
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.notify = function(message, level, opts)
-      	local merged_opts = vim.tbl_extend("force", {
-      		on_open = function(win)
-      			local buf = vim.api.nvim_win_get_buf(win)
-      			vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
-      		end,
-      	}, opts or {})
+    #   local filtered_message = { "No information available" }
 
-      	for _, msg in ipairs(filtered_message) do
-      		if message == msg then
-      			return
-      		end
-      	end
-      	return notify(message, level, merged_opts)
-      end
-    '';
+    #   -- Override notify function to filter out messages
+    #   ---@diagnostic disable-next-line: duplicate-set-field
+    #   vim.notify = function(message, level, opts)
+    #   	local merged_opts = vim.tbl_extend("force", {
+    #   		on_open = function(win)
+    #   			local buf = vim.api.nvim_win_get_buf(win)
+    #   			vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+    #   		end,
+    #   	}, opts or {})
+
+    #   	for _, msg in ipairs(filtered_message) do
+    #   		if message == msg then
+    #   			return
+    #   		end
+    #   	end
+    #   	return notify(message, level, merged_opts)
+    #   end
+    # '';
   };
 }

@@ -107,22 +107,22 @@
         };
       }
 
-      {
-        key = "p";
-        action = "\"_dp";
-        mode = "v";
-        options = {
-          desc = "paste over currently selected text without yanking it";
-        };
-      }
-      {
-        key = "P";
-        action = "\"_dP";
-        mode = "v";
-        options = {
-          desc = "paste over currently selected text without yanking it";
-        };
-      }
+      # {
+      #   key = "p";
+      #   action = "\"_dp";
+      #   mode = "v";
+      #   options = {
+      #     desc = "paste over currently selected text without yanking it";
+      #   };
+      # }
+      # {
+      #   key = "P";
+      #   action = "\"_dP";
+      #   mode = "v";
+      #   options = {
+      #     desc = "paste over currently selected text without yanking it";
+      #   };
+      # }
 
       {
         key = "j";
@@ -143,7 +143,7 @@
 
       {
         key = "+";
-        action = ":vertical resize +5<CR>";
+        action = "<cmd>vertical resize +5<CR>";
         mode = "n";
         options = {
           desc = "Vertival resize";
@@ -151,8 +151,8 @@
       }
       {
         key = "_";
-        action = ":vertical resize -5<CR>";
-        mode = "v";
+        action = "<cmd>vertical resize -5<CR>";
+        mode = "n";
         options = {
           desc = "Vertival resize";
         };
@@ -160,16 +160,16 @@
 
       {
         key = "=";
-        action = ":resize +5<CR>";
-        mode = "v";
+        action = "<cmd>resize +5<CR>";
+        mode = "n";
         options = {
           desc = "Horizontal resize";
         };
       }
       {
         key = "-";
-        action = ":resize -5<CR>";
-        mode = "v";
+        action = "<cmd>resize -5<CR>";
+        mode = "n";
         options = {
           desc = "Horizontal resize";
         };
@@ -177,7 +177,7 @@
 
       {
         key = "<leader>qs";
-        action = "<cmd>lua require(\" persistence \").load()<cr>";
+        action = "<cmd>lua require(\"persistence\").load()<cr>";
         mode = "n";
         options = {
           desc = "restore the session for the current directory";

@@ -1,6 +1,7 @@
 {
   inputs,
   nixpkgs,
+  nixpkgs-unstable,
   self,
   username,
   theme,
@@ -9,11 +10,11 @@
   ...
 }: let
   system = "x86_64-linux";
-  pkgs = import nixpkgs {
+  pkgs = import nixpkgs-unstable {
     inherit system;
     config.allowUnfree = true;
   };
-  lib = nixpkgs.lib;
+  lib = pkgs.lib;
 in {
   nixos = nixpkgs.lib.nixosSystem {
     specialArgs = {inherit self inputs username outputs stylix theme;};

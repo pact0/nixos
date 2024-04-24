@@ -76,7 +76,7 @@
         "SUPERSHIFT,Z,exec,hyprctl dispatch fullscreen 2"
 
         "SUPER,E,exec,thunar"
-        "SUPER, Return, exec, kitty"
+        #"SUPER, Return, exec, kitty"
 
         "SUPER, P, pseudo,"
         "SUPER, J, togglesplit,"
