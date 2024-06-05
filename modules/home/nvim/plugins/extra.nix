@@ -62,6 +62,10 @@ in {
       ];
     };
 
+    plugins.undotree = {
+      enable = true;
+    };
+
     plugins = {
       copilot-lua = {
         enable = true;

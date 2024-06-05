@@ -6,10 +6,11 @@
     fd = "fd -Lu";
     v = "nvim";
     #nixos-rebuild = "systemd-run --no-ask-password --uid=0 --system --scope -p MemoryLimit=16000M -p CPUQuota=60% nixos-rebuild";
-    rebuild = "sudo nixos-rebuild switch --show-trace --flake .#nixos";
+    # rebuild = "sudo nixos-rebuild switch --show-trace --flake .#nixos";
+    rebuild = "nh os switch";
     installed = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq | cat";
     installedall = "nix-store --query --requisites /run/current-system | cat";
-    cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
+    cleanup = "nh clean all --keep 5";
     listgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
     nixremove = "nix-store --gc";
     bloat = "nix path-info -Sh /run/current-system";
@@ -29,6 +30,25 @@
     grep = "rg";
     rm = "rip";
     undorm = "rip -u";
+
+    # kubectl
+    k="kubectl";
+    kg="kubectl get";
+    kd="kubectl describe";
+    kdp="kubectl describe pod";
+    kdd="kubectl describe deployment";
+    krm="kubectl delete";
+    kgall="kubectl get --all-namespaces all";
+    kgp="kubectl get pod";
+    kgd="kubectl get deployments";
+    kgsvc="kubectl get service";
+    kl="kubectl logs --all-containers=true";
+    kei="kubectl exec -it";
+
+    # docker
+    dcleannone= "docker rmi (docker images | grep \"<none>\" | awk \"{print $3}\")";
+    dstopall="docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker stop";
+    dremoveall="docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker rm -fv";
   };
 in {
   imports = [

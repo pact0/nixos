@@ -125,15 +125,15 @@ in {
     };
 
     enabledExtensions = with spicePkgs.extensions; [
-      playlistIcons
+      # playlistIcons
       #genre
-      historyShortcut
-      spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
-      hidePodcasts
+      # historyShortcut
+      # spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
+      # hidePodcasts
       fullAppDisplay
       showQueueDuration
-      shuffle
-      songStats
+      # shuffle
+      # songStats
     ];
   };
 }

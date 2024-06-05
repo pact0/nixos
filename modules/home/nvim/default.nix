@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   imports = [
     (import ./options.nix)
     (import ./keymaps.nix)
@@ -24,6 +24,19 @@
         "<leader>g" = "Git";
       };
     };
+
+    plugins.hardtime = {
+      enable = true;
+      # settings = {
+      #   duration = 100;
+      # };
+    };
+
+
+    extraPlugins = [ 
+    pkgs.vimPlugins.nvim-spectre 
+    pkgs.vimPlugins.nvim-surround 
+    ];
 
     plugins.transparent = {
       enable = true;

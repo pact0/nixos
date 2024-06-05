@@ -169,7 +169,7 @@
 
       {
         mode = "n";
-        key = "[d";
+        key = "]d";
         action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
         options = {
           desc = "Next Diagnostic";
@@ -179,7 +179,7 @@
 
       {
         mode = "n";
-        key = "]d";
+        key = "[d";
         action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
         options = {
           desc = "Previous Diagnostic";

@@ -44,6 +44,7 @@
     bitwarden
     qbittorrent
 
+    fluxcd
     bottles
     cura
     # inputs.nixvim.packages.${pkgs.system}.default

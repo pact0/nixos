@@ -23,6 +23,7 @@
     pciutils
     lazygit
     rm-improved
+    kubectl
   ];
 
   programs.bat = {

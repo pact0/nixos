@@ -50,8 +50,8 @@
         marksman = {enable = true;};
         pyright = {enable = true;};
         gopls = {enable = true;};
-        terraformls = {enable = true;};
-        yamlls = {enable = true;};
+        # terraformls = {enable = true;};
+        # yamlls = {enable = true;};
         clangd = {enable = true;};
         cmake = {enable = true;};
         dockerls = {enable = true;};

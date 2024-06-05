@@ -1,4 +1,4 @@
 {pkgs, ...}: {
   # Module installing brave as default browser
-  home.packages = [pkgs.brave];
+  home.packages = [pkgs.brave pkgs.chromium];
 }

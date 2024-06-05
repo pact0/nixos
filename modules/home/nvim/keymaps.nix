@@ -191,6 +191,34 @@
           desc = "restore the last session";
         };
       }
+      {
+        key = "<leader>U";
+        action = "<cmd>UndotreeToggle<cr>";
+        mode = "n";
+        options = {
+          desc = "toggle undotree";
+        };
+      }
+
+     {
+        mode = "n";
+        key = "[b";
+        action = "<cmd>bp<CR>";
+        options = {
+          desc = "Previouv Buffer";
+          silent = true;
+        };
+      }
+
+      {
+        mode = "n";
+        key = "]b";
+        action = "<cmd>bn<CR>";
+        options = {
+          desc = "Next Buffer";
+          silent = true;
+        };
+      }
     ];
   };
 }
