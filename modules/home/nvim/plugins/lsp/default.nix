@@ -13,6 +13,10 @@
       lsp.autoAttach = true;
     };
 
+    # plugins.better-ts-errors = {
+    #   enable = true;
+    # };
+
     plugins.lsp-lines = {enable = false;};
 
     plugins.ts-context-commentstring = {

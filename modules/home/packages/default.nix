@@ -28,7 +28,7 @@
     qalculate-gtk # calculatoru mnie na skt
     unzip
     xdg-utils
-    signal-desktop
+    signal-desktop-beta
     cava
     xfce.thunar
   ];

@@ -7,7 +7,9 @@
     (import ./flash.nix)
     (import ./extra.nix)
 
+    (import ./runner)
     (import ./lsp)
+    (import ./tests)
     (import ./ui)
     (import ./git)
     (import ./treesitter)

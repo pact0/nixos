@@ -17,7 +17,7 @@
   lib = pkgs.lib;
 in {
   nixos = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs username outputs stylix theme;};
+    specialArgs = {inherit self inputs username outputs stylix theme pkgs;};
     modules = [
       #(import ./virtualization.nix)
       (import ./bootloader.nix)
@@ -29,6 +29,7 @@ in {
       (import ./sound.nix)
       (import ../../nixos/configuration.nix)
       (import ./streamdeck.nix)
+      (import ./homepage-dashboard.nix )
 
       (import ./docker.nix)
       (import ./wayland.nix)

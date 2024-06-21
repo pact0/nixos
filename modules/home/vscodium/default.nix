@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    # package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       # nix language
       bbenoist.nix
@@ -15,6 +15,12 @@
       # C/C++
       ms-vscode.cpptools
 
+      esbenp.prettier-vscode
+      # yoavbls.pretty-ts-errors
+
+      # million.million-lint
+      # ms-vscode.vscode-typescript-next
+      # yoavbls.pretty-ts-errors
       # Color theme
       #catppuccin.catppuccin-vsc
       #catppuccin.catppuccin-vsc-icons

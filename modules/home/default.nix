@@ -4,6 +4,7 @@
   colors,
   ...
 }: {
+
   imports = [
     (import ./git)
     (import ./nvim)
@@ -37,9 +38,13 @@
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     brave
 
+    supabase-cli
+    qmk
+    insomnia
     ## Doom
     crispy-doom
     vesktop
+    discord
 
     bitwarden
     qbittorrent
