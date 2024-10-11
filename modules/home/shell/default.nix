@@ -7,7 +7,7 @@
     v = "nvim";
     #nixos-rebuild = "systemd-run --no-ask-password --uid=0 --system --scope -p MemoryLimit=16000M -p CPUQuota=60% nixos-rebuild";
     # rebuild = "sudo nixos-rebuild switch --show-trace --flake .#nixos";
-    rebuild = "nh os switch";
+    rebuild = "nh os switch --verbose";
     installed = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq | cat";
     installedall = "nix-store --query --requisites /run/current-system | cat";
     cleanup = "nh clean all --keep 5";
@@ -84,4 +84,19 @@ in {
       enableZshIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
+
+  programs.yazi = {
+    enable = true;
+
+    settings = {
+
+  manager = {
+    show_hidden = false;
+    sort_by = "modified";
+    sort_dir_first = true;
+    sort_reverse = true;
+  };
+
+    };
+  };
 }

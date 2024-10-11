@@ -3,9 +3,17 @@
   outputs,
   lib,
   config,
+  colors,
+  system,
+  theme,
   pkgs,
   ...
-}: {
+}: let
+  nixvim' = inputs.nixvim.packages."x86_64-linux".default;
+  nvim = nixvim'.nixvimExtend {
+    # config.theme = theme;
+  };
+in{
   imports = [
     ./hardware-configuration.nix
   ];
@@ -52,5 +60,6 @@
 
   environment.systemPackages = with pkgs; [
     nh
+   nvim
   ];
 }

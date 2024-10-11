@@ -46,13 +46,9 @@
 
     # Nvim
     nixvim = {
-      url = "github:nix-community/nixvim";
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:pact0/nixvim";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
-    # nixvim.url = "github:elythh/nixvim";
 
     # tmux
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";

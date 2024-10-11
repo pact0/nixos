@@ -26,7 +26,7 @@
     (import ./style)
     (import ./tmux)
 
-    inputs.nixvim.homeManagerModules.nixvim
+    # inputs.nixvim.homeManagerModules.nixvim
   ];
 
   home.packages = with pkgs; [
