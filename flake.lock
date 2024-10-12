@@ -1272,11 +1272,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1728722058,
-        "narHash": "sha256-olECRW523XOSApA6iwwrxr/Rir8wV1zq4PLIjNFNLJc=",
+        "lastModified": 1728723549,
+        "narHash": "sha256-daMbFXvh0L5b+Xozp83g5nlBQCsp+Rv2UHe9cvSOBlM=",
         "owner": "pact0",
         "repo": "nixvim",
-        "rev": "67a6bf0dc5917916b8855cc37e1360e7e6d23723",
+        "rev": "24106926798d181d0a3dc9c97e6a22bddc80d9fe",
         "type": "github"
       },
       "original": {

@@ -77,7 +77,7 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
     username = "pacto";
     # https://github.com/tinted-theming/base16-schemes
-    theme = "gruvbox-material-dark-hard";
+    theme = "eighties";
     colors = {
       base00 = "${stylix.colors.base00}";
       base01 = "${stylix.colors.base01}";
