@@ -4,7 +4,6 @@
   colors,
   ...
 }: {
-
   imports = [
     (import ./git)
     (import ./nvim)
@@ -37,6 +36,8 @@
     inputs.nix-gaming.packages.${pkgs.system}.proton-ge
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     brave
+
+    obsidian
 
     supabase-cli
     qmk

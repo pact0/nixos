@@ -7,6 +7,19 @@
     nur.url = "github:nix-community/NUR";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # nix helper
+    nh.url = "github:viperML/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # project linting
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+
+    # secret management
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -16,14 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # TODO: Add any other flake you might need
-    #hardware.url = "github:nixos/nixos-hardware";
+    # hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Theme
-    # nix-colors.url = "github:misterio77/nix-colors";
     stylix.url = "github:danth/stylix";
-
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # DE
     hyprland = {
@@ -54,7 +64,10 @@
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
     # spotify
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # Spicetify, a spotify theming tool
+    spicetify.url = "github:Gerg-L/spicetify-nix";
+    spicetify.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -77,25 +90,7 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
     username = "pacto";
     # https://github.com/tinted-theming/base16-schemes
-    theme = "eighties";
-    colors = {
-      base00 = "${stylix.colors.base00}";
-      base01 = "${stylix.colors.base01}";
-      base02 = "${stylix.colors.base02}";
-      base03 = "${stylix.colors.base03}";
-      base04 = "${stylix.colors.base04}";
-      base05 = "${stylix.colors.base05}";
-      base06 = "${stylix.colors.base06}";
-      base07 = "${stylix.colors.base07}";
-      base08 = "${stylix.colors.base08}";
-      base09 = "${stylix.colors.base09}";
-      base0A = "${stylix.colors.base0A}";
-      base0B = "${stylix.colors.base0B}";
-      base0C = "${stylix.colors.base0C}";
-      base0D = "${stylix.colors.base0D}";
-      base0E = "${stylix.colors.base0E}";
-      base0F = "${stylix.colors.base0F}";
-    };
+    theme = "apathy";
     # selfPkgs = import ./pkgs;
   in {
     # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
