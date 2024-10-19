@@ -89,8 +89,9 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
     username = "pacto";
+
     # https://github.com/tinted-theming/base16-schemes
-    theme = "apathy";
+    theme = "catppuccin-frappe";
     # selfPkgs = import ./pkgs;
   in {
     # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});

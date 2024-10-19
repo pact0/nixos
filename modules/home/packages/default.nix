@@ -7,12 +7,12 @@
     entr # perform action when file change
     libreoffice
     nix-prefetch-github
-    pipx # Install Python applications in isolated environments
+    # pipx # Install Python applications in isolated environments
     #prismlauncher                     # minecraft launcher
     # rnix-lsp
     soundwireserver # pass audio to android phone
-    youtube-dl
-    gnome.zenity
+    yt-dlp
+    zenity
 
     # C / C++
     gcc
@@ -22,7 +22,7 @@
     ffmpeg
     imv # image viewer
     libnotify
-    man-pages # extra man pages
+    # man-pages # extra man pages
     ncdu # disk space
     openssl
     qalculate-gtk # calculatoru mnie na skt

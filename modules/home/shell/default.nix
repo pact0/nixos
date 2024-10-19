@@ -32,23 +32,23 @@
     undorm = "rip -u";
 
     # kubectl
-    k="kubectl";
-    kg="kubectl get";
-    kd="kubectl describe";
-    kdp="kubectl describe pod";
-    kdd="kubectl describe deployment";
-    krm="kubectl delete";
-    kgall="kubectl get --all-namespaces all";
-    kgp="kubectl get pod";
-    kgd="kubectl get deployments";
-    kgsvc="kubectl get service";
-    kl="kubectl logs --all-containers=true";
-    kei="kubectl exec -it";
+    k = "kubectl";
+    kg = "kubectl get";
+    kd = "kubectl describe";
+    kdp = "kubectl describe pod";
+    kdd = "kubectl describe deployment";
+    krm = "kubectl delete";
+    kgall = "kubectl get --all-namespaces all";
+    kgp = "kubectl get pod";
+    kgd = "kubectl get deployments";
+    kgsvc = "kubectl get service";
+    kl = "kubectl logs --all-containers=true";
+    kei = "kubectl exec -it";
 
     # docker
-    dcleannone= "docker rmi (docker images | grep \"<none>\" | awk \"{print $3}\")";
-    dstopall="docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker stop";
-    dremoveall="docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker rm -fv";
+    dcleannone = "docker rmi (docker images | grep \"<none>\" | awk \"{print $3}\")";
+    dstopall = "docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker stop";
+    dremoveall = "docker ps -a | awk \"{print $1}\" | tail -n +2 | xargs docker rm -fv";
   };
 in {
   imports = [
@@ -78,25 +78,23 @@ in {
     };
   };
 
-   programs.direnv = {
-      enable = true;
-      enableBashIntegration = true; # see note on other shells below
-      enableZshIntegration = true; # see note on other shells below
-      nix-direnv.enable = true;
-    };
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    enableZshIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
 
   programs.yazi = {
     enable = true;
 
     settings = {
-
-  manager = {
-    show_hidden = false;
-    sort_by = "modified";
-    sort_dir_first = true;
-    sort_reverse = true;
-  };
-
+      manager = {
+        show_hidden = false;
+        sort_by = "modified";
+        sort_dir_first = true;
+        sort_reverse = true;
+      };
     };
   };
 }

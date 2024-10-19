@@ -33,8 +33,8 @@
     gamemode
     gamescope
     winetricks
-    inputs.nix-gaming.packages.${pkgs.system}.proton-ge
-    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    # inputs.nix-gaming.packages.${pkgs.system}.proton-ge-bin
+    # inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     brave
 
     obsidian
@@ -52,7 +52,7 @@
 
     fluxcd
     bottles
-    cura
+    # cura
     # inputs.nixvim.packages.${pkgs.system}.default
   ];
 

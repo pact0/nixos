@@ -6,14 +6,15 @@
   colors,
   system,
   theme,
+  nixpkgs,
   pkgs,
   ...
 }: let
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
-  nvim = nixvim'.nixvimExtend {
+  nvim = nixvim'.extend {
     config.theme = theme;
   };
-in{
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -60,6 +61,6 @@ in{
 
   environment.systemPackages = with pkgs; [
     nh
-   nvim
+    nvim
   ];
 }

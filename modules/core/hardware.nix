@@ -3,11 +3,10 @@
   config,
   ...
 }: {
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
+  # hardware.graphics.driSupport32Bit = true;
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
