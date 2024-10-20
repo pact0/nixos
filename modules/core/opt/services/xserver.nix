@@ -34,7 +34,7 @@ in {
           enable = true;
           user = "${username}";
         };
-        defaultSession = "none+hyprland";
+        # defaultSession = "none+hyprland";
       };
     };
   };
