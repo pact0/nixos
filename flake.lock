@@ -573,6 +573,46 @@
         "type": "github"
       }
     },
+    "grub2-themes": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728666168,
+        "narHash": "sha256-UpcYJaIbV84sfKu8fZxeKLKYgUBp2+nMSzgj0jZqhDg=",
+        "owner": "vinceliuice",
+        "repo": "grub2-themes",
+        "rev": "47a6467e2770252d30c2110dadddfbf887a288ba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vinceliuice",
+        "repo": "grub2-themes",
+        "type": "github"
+      }
+    },
+    "hm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729414726,
+        "narHash": "sha256-Dtmm1OU8Ymiy9hVWn/a2B8DhRYo9Eoyx9veERdOBR4o=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "fe56302339bb28e3471632379d733547caec8103",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -1855,6 +1895,8 @@
       "inputs": {
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts",
+        "grub2-themes": "grub2-themes",
+        "hm": "hm",
         "home-manager": "home-manager",
         "hypr-contrib": "hypr-contrib",
         "hypridle": "hypridle",
