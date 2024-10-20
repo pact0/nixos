@@ -1,6 +1,0 @@
-{...}: {
-  imports = [
-    (import ./neotest.nix)
-  ];
-
-}

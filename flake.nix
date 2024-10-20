@@ -24,6 +24,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Anyrun, an app launcher
+    anyrun.url = "github:Kirottu/anyrun";
+    anyrun.inputs.nixpkgs.follows = "nixpkgs";
+
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
 

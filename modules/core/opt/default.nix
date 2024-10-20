@@ -1,7 +1,7 @@
 {
   imports = [
     ./programs
-    # ./services
+    ./services
 
     ./options.nix
     ./pkgs.nix

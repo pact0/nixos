@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    lutris
     # (lutris.override {
     #   extraPkgs = pkgs: [
     #     # List package dependencies here

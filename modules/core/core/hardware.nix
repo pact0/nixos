@@ -5,10 +5,7 @@
 }: {
   hardware = {
     graphics.enable = true;
-    # hardware.graphics.driSupport32Bit = true;
     enableRedistributableFirmware = true;
-    graphics.extraPackages = with pkgs; [
-    ]; # or "nvidiaLegacy470 etc.
 
     nvidia = {
       modesetting.enable = true;
@@ -28,6 +25,7 @@
   };
 
   powerManagement.cpuFreqGovernor = "performance";
+  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

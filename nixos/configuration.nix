@@ -10,10 +10,10 @@
   pkgs,
   ...
 }: let
-  nixvim' = inputs.nixvim.packages."x86_64-linux".default;
-  nvim = nixvim'.extend {
-    config.theme = theme;
-  };
+  # nixvim' = inputs.nixvim.packages."x86_64-linux".default;
+  # nvim = nixvim'.extend {
+  #   config.theme = theme;
+  # };
 in {
   imports = [
     ./hardware-configuration.nix
@@ -55,12 +55,12 @@ in {
     };
   };
 
-  # environment.sessionVariables = {
-  #   FLAKE = "/home/pacto/nixos";
-  # };
+  environment.sessionVariables = {
+    FLAKE = "/home/pacto/nixos";
+  };
 
   environment.systemPackages = with pkgs; [
     nh
-    nvim
+    # nvim
   ];
 }

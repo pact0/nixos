@@ -1,9 +1,12 @@
 {
   imports = [
     ./system.nix
+    ./sound.nix
     ./nix.nix
     ./environment.nix
+
     ./boot.nix
+    ./hardware.nix
     ./security.nix
 
     ./networking.nix
@@ -14,8 +17,7 @@
 
     ./console.nix
     ./virtualisation.nix
-    # ./qt.nix
-    ./sound.nix
-    # ./portal.nix
+    ./qt.nix
+    ./portal.nix
   ];
 }

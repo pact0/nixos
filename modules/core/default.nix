@@ -19,15 +19,13 @@ in {
   nixos = nixpkgs.lib.nixosSystem {
     specialArgs = {inherit self inputs username outputs stylix theme pkgs;};
     modules = [
-      (import ./services.nix)
       (import ./user.nix)
+      (import ./core)
+      (import ./opt)
       (import ../../nixos/configuration.nix)
 
       (import ./wayland.nix)
       (import ./firejail)
-
-      (import ./core)
-      (import ./opt)
     ];
   };
 }
