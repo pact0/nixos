@@ -7,7 +7,7 @@
         "load-wallpapers &"
         "signal-desktop --start-in-tray &"
         "vesktop --start-minimized &"
-        "streamdeck -n &"
+        # "streamdeck -n &"
         "bitwarden &"
       ];
 
