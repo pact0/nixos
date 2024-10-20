@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
+    # xdgOpenUsePortal = true;
+    wlr.enable = false;
+    xdgOpenUsePortal = false;
     config = {
       common.default = ["hyprland"];
       hyprland.default = ["hyprland"];
