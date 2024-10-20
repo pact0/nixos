@@ -12,6 +12,10 @@
     nh.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    # grub2 theme
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
+
     # project linting
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +32,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    # Home-manager
+    hm.url = "github:nix-community/home-manager";
+    hm.inputs.nixpkgs.follows = "nixpkgs";
 
     # hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
