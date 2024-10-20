@@ -14,8 +14,8 @@
 
     ./console.nix
     ./virtualisation.nix
-    ./qt.nix
+    # ./qt.nix
     ./sound.nix
-    ./portal.nix
+    # ./portal.nix
   ];
 }
