@@ -28,8 +28,8 @@ in {
       (import ./networking.nix)
       (import ./sound.nix)
       (import ../../nixos/configuration.nix)
-      (import ./streamdeck.nix)
-      (import ./homepage-dashboard.nix )
+      # (import ./streamdeck.nix)
+      (import ./homepage-dashboard.nix)
 
       (import ./docker.nix)
       (import ./wayland.nix)
