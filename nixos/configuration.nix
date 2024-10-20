@@ -55,9 +55,9 @@ in {
     };
   };
 
-  environment.sessionVariables = {
-    FLAKE = "/home/pacto/nixos";
-  };
+  # environment.sessionVariables = {
+  #   FLAKE = "/home/pacto/nixos";
+  # };
 
   environment.systemPackages = with pkgs; [
     nh

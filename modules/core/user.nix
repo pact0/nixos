@@ -8,9 +8,6 @@
   colors,
   ...
 }: let
-  packages = with pkgs; [
-    fish
-  ];
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   imports = [inputs.home-manager.nixosModules.home-manager];
@@ -30,36 +27,6 @@ in {
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
-
-  users.groups.media = {
-    name = "media";
-    gid = 1001;
-  };
-
-  users.users.${username} = {
-    isNormalUser = true;
-    #initialPassword = "test";
-    description = "${username}";
-    extraGroups =
-      ["networkmanager" "wheel" "media"]
-      ++ ifTheyExist [
-        "minecraft"
-        "network"
-        "wireshark"
-        "i2c"
-        "mysql"
-        "docker"
-        "podman"
-        "git"
-        "libvirtd"
-        "deluge"
-        "vboxsf"
-        "video"
-        "render"
-      ];
-    shell = pkgs.zsh;
-  };
-  nix.settings.allowed-users = ["${username}"];
 
   environment.variables.EDITOR = "nvim";
   environment.variables.VISUAL = "nvim";

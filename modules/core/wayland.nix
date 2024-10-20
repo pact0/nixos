@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     hyprland = {
       enable = true;
@@ -13,16 +9,16 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    xdgOpenUsePortal = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      #pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
-      #pkgs.xdg-desktop-portal-gtk
-      #pkgs.xdg-desktop-portal-wlr
-    ];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   wlr.enable = false;
+  #   xdgOpenUsePortal = false;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-hyprland
+  #     #pkgs.xdg-desktop-portal
+  #     pkgs.xdg-desktop-portal-gtk
+  #     #pkgs.xdg-desktop-portal-gtk
+  #     #pkgs.xdg-desktop-portal-wlr
+  #   ];
+  # };
 }
