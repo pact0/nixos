@@ -1,3 +1,6 @@
-{
-  # imports = [./anyrun];
+{inputs, ...}: {
+  imports = [
+    inputs.anyrun.homeManagerModules.default
+    ./anyrun
+  ];
 }

@@ -19,11 +19,6 @@ in {
   options.opt.launcher.anyrun.enable = mkEnableOption "Anyrun";
 
   config = mkIf cfg.enable {
-    home = {
-      packages = [
-        inputs.anyrun.packages.${pkgs.system}.anyrun
-      ];
-    };
     programs.anyrun = {
       enable = true;
       config = {

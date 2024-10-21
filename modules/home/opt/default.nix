@@ -26,6 +26,10 @@
       spicetify.enable = true;
     };
 
+    launcher.anyrun = {
+      enable = true;
+    };
+
     misc = {
       obsidian.enable = true;
     };
