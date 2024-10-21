@@ -106,7 +106,7 @@
     # Your custom packages and modifications, exported as overlays
     #overlays = import ./overlays {inherit inputs selfPkgs;};
 
-    nixosConfigurations = import ./modules/core/default.nix {
+    nixosConfigurations = import ./modules/nixos/default.nix {
       inherit self nixpkgs inputs username outputs stylix theme nixpkgs-unstable;
     };
   };
