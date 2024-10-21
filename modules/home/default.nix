@@ -8,11 +8,8 @@
     (import ./opt)
     (import ./core)
 
-    (import ./shell)
     (import ./wofi)
-    (import ./waybar)
     (import ./style)
-    (import ./tmux)
   ];
 
   home.packages = with pkgs; [

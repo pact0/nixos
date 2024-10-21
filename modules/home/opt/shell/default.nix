@@ -57,7 +57,6 @@ in {
     (import ./zsh.nix {inherit aliases;})
     (import ./starship.nix)
     (import ./programs.nix)
-    (import ./nnn.nix)
     (import ./scripts)
   ];
 
@@ -97,4 +96,18 @@ in {
       };
     };
   };
+
+  home.packages = with pkgs; [
+    xdragon
+    sxiv
+    imv
+    ffmpegthumbnailer
+    mediainfo
+    mktemp
+    ffmpeg
+    poppler
+    glow
+    lynx
+    less
+  ];
 }

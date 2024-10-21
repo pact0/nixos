@@ -13,11 +13,12 @@
     ./music
     ./mpv
     ./obs
-    # ./services
-    # ./shell
+    ./services
+    ./shell
     ./terminal
     # ./wayland
     ./nvim
+    ./tmux
     ./programs.nix
   ];
 

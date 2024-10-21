@@ -1,10 +1,5 @@
-{
-  lib,
-  inputs,
-  config,
-  ...
-}: {
-  programs.starship = {
+{config, ...}: {
+  programs.starship = with config.lib.stylix.colors; {
     enable = true;
 
     enableBashIntegration = true;
@@ -18,19 +13,19 @@
       right_format = "$cmd_duration";
 
       directory = {
-        format = "[ ](bold #${config.lib.stylix.colors.base0A})[ $path ]($style)";
-        style = "bold #${config.lib.stylix.colors.base05}";
+        format = "[ ](bold #${base0A})[ $path ]($style)";
+        style = "bold #${base05}";
       };
 
       character = {
-        success_symbol = "[ ](bold #${config.lib.stylix.colors.base0D})[ ➜](bold green)";
-        error_symbol = "[ ](bold #${config.lib.stylix.colors.base0D})[ ➜](bold red)";
+        success_symbol = "[ ](bold #${base0D})[ ➜](bold green)";
+        error_symbol = "[ ](bold #${base0D})[ ➜](bold red)";
       };
 
       cmd_duration = {
-        format = "[]($style)[[󰔚 ](bg:#${config.lib.stylix.colors.base01} fg:#${config.lib.stylix.colors.base04} bold)$duration](bg:#${config.lib.stylix.colors.base01} fg:#${config.lib.stylix.colors.base05})[ ]($style)";
+        format = "[]($style)[[󰔚 ](bg:#${base01} fg:#${base04} bold)$duration](bg:#${base01} fg:#${base05})[ ]($style)";
         disabled = false;
-        style = "bg:none fg:#${config.lib.stylix.colors.base01}";
+        style = "bg:none fg:#${base01}";
       };
 
       directory.substitutions = {

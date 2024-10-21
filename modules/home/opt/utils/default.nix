@@ -1,6 +1,8 @@
 {
   imports = [
     ./git
-    ./xdg
+    # ./xdg
+    ./lazygit
+    ./gpg-agent
   ];
 }
