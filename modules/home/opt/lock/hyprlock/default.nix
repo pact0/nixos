@@ -156,7 +156,7 @@ in {
 
         background = [
           {
-            path = "${config.wallpaper}";
+            # path = "${config.wallpaper}";
             blur_passes = 3;
             blur_size = 8;
           }

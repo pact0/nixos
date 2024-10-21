@@ -29,5 +29,9 @@
     misc = {
       obsidian.enable = true;
     };
+
+    lock = {
+      hyprlock.enable = true;
+    };
   };
 }

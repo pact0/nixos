@@ -31,6 +31,9 @@
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
+    HYPRCURSOR_THEME = "Bibata-Modern-Ice";
+    HYPRCURSOR_SIZE = "24";
+
     BROWSER = "firefox";
     DEFAULT_BROWSER = "firefox";
   };
