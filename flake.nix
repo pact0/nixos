@@ -70,8 +70,6 @@
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
     # spotify
-    # spicetify-nix.url = "github:the-argus/spicetify-nix";
-    # Spicetify, a spotify theming tool
     spicetify.url = "github:Gerg-L/spicetify-nix";
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
   };

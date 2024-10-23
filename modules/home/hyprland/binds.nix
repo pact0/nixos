@@ -68,7 +68,8 @@
         "SUPER,Q,killactive,"
         "SUPERCTRL,M,exit,"
         "SUPER,space,togglefloating,"
-        "SUPER,d,exec,wofi --show drun"
+        # "SUPER,d,exec,wofi --show drun"
+        "SUPER,d,exec,anyrun"
         #bind=SUPER,P,pseudo,
 
         # fullscreen

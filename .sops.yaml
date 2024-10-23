@@ -1,0 +1,7 @@
+keys:
+  - &pacto age1atypg0tn047f8hvxk9hgtky604e8k204d248s7h0jm33ncmksf8s6jp4l7
+creation_rules:
+  - path_regex: secrets/pacto/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *pacto

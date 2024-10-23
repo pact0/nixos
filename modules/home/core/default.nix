@@ -1,6 +1,7 @@
 {
   config,
   self,
+  pkgs,
   ...
 }: {
   # wallpaper = "${self}/home/shared/walls/${config.theme}.jpg";
@@ -16,4 +17,8 @@
   ];
 
   programs.home-manager.enable = true;
+
+  home.packages = with pkgs; [
+    sops
+  ];
 }

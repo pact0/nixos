@@ -30,6 +30,6 @@
     xdg-utils
     signal-desktop-beta
     cava
-    xfce.thunar
+    # xfce.thunar
   ];
 }
