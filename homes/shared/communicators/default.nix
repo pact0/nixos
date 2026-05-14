@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./discord
+
+    ./signal.nix
+  ];
+}

@@ -1,0 +1,109 @@
+{
+  lib,
+  inputs,
+  withSystem,
+  ...
+}: {
+  flake.nixosConfigurations = let
+    # inherit self from inputs
+    inherit (inputs) self nixpkgs;
+    inherit (lib.lists) singleton concatLists;
+    inherit (lib.modules) mkDefault;
+    inherit (lib.attrsets) recursiveUpdate;
+
+    # shorthand alias to `lib.nixosSystem`
+    # `lib.nixosSystem` is a shallow wrapper around `lib.evalModules` that passes
+    # a few specialArgs and modules to bootstrap a working NixOS system. This is
+    # done implicitly in the wrapper and normally we would like to avoid using it
+    # however using `evalModules` to evaluate a system closure breaks e.g. the
+    # `documentation.nixos.enable` option which evaluates the module tree internally
+    # in which case `baseModules` will be missing
+    mkSystem = inputs.nixpkgs.lib.nixosSystem;
+
+    # global module path for nixos modules
+    # while using nixosSystem, this will be set as a specialArgs internally
+    modulesPath = "${nixpkgs}/nixos/modules";
+
+    # mkNixosSystem is a convenient wrapper around lib.nixosSystem (which itself is a wrapper around lib.evalModules)
+    # that allows us to abstract host creation and configuration with necessary modules and specialArgs pre-defined
+    # or properly overridden compared to their nixpkgs default. This allows us to swiftly bootstrap a new system
+    # when (not if) a new system is added to `hosts/default.nix` with minimum lines of code rewritten each time.
+    # Ultimately this defines specialArgs we need and lazily merges any args and modules the host may choose
+    # to pass to the builder.
+    mkNixosSystem = {
+      withSystem,
+      system,
+      hostname,
+      ...
+    } @ args:
+      withSystem system ({
+        inputs',
+        self',
+        ...
+      }:
+        mkSystem {
+          # specialArgs
+          specialArgs = recursiveUpdate {
+            inherit (self) keys;
+            inherit lib modulesPath;
+            inherit inputs self inputs' self';
+          } (args.specialArgs or {});
+
+          # Modules
+          modules = concatLists [
+            (singleton {
+              networking.hostName = args.hostname;
+              nixpkgs = {
+                hostPlatform = mkDefault args.system;
+                flake.source = nixpkgs.outPath;
+              };
+
+              # set baseModules in the place of nixos/lib/eval-config.nix's default argument
+              # _module.args.baseModules = import "${modulesPath}/module-list.nix";
+            })
+
+            # if host needs additional modules, append them
+            (args.modules or [])
+          ];
+        });
+  in {
+    server = mkNixosSystem {
+      inherit withSystem;
+      hostname = "nixos-vm";
+      system = "x86_64-linux";
+      modules = [
+        inputs.lanzaboote.nixosModules.lanzaboote
+
+        ./vm
+
+        # inputs.disko.nixosModules.disko
+        # (import ./disko.nix {disc = "dev/sda";})
+
+        ../modules
+        ../homes
+      ];
+      # modules = mkModulesFor "nixos" {
+      #   roles = [graphical workstation];
+      #   extraModules = [shared homes];
+      # };
+    };
+
+    nixos = mkNixosSystem {
+      inherit withSystem;
+      hostname = "nixos";
+      system = "x86_64-linux";
+      modules = [
+        #inputs.lanzaboote.nixosModules.lanzaboote
+
+        ./nixos
+
+        ../modules
+        ../homes
+      ];
+      # modules = mkModulesFor "nixos" {
+      #   roles = [graphical workstation];
+      #   extraModules = [shared homes];
+      # };
+    };
+  };
+}
