@@ -1,5 +1,9 @@
-{
+{pkgs, ...}: {
   imports = [
+  ];
+
+  home.packages = [
+    pkgs. tor-browser
   ];
 
   stylix.targets.librewolf.profileNames = ["default"];
