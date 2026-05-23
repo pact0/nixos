@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./zen.nix
   ];
 
   home.packages = [

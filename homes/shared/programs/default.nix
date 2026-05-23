@@ -1,8 +1,4 @@
-{
-  inputs',
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./browsers
 
@@ -17,7 +13,7 @@
   home.packages = with pkgs; [
     easyeffects
     qbittorrent
-
+    deluge
     bitwarden-desktop
 
     anki
