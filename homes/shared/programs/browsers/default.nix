@@ -4,7 +4,8 @@
   ];
 
   home.packages = [
-    pkgs. tor-browser
+    pkgs.tor-browser
+    pkgs.ungoogled-chromium
   ];
 
   stylix.targets.librewolf.profileNames = ["default"];
