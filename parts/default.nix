@@ -5,7 +5,7 @@
   # By convention, things that would usually go to flake.nix should
   # have its own file in the `flake/` directory.
   imports = [
-    # ./apps # "Runnables" exposed by the flake, used with `nix run .#<appName`
+    ./apps # "Runnables" exposed by the flake, used with `nix run .#<appName`
     # ./checks # Checks that will be built when `nix flake check is run`
     # ./lib # Extensible extended library built on top of `nixpkgs.lib`
     ./modules # NixOS and Home-Manager modules provided by the flake

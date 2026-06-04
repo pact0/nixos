@@ -1,6 +1,7 @@
 {
   perSystem = {pkgs, ...}: let
     callApps = path: import (path + /app.nix) {inherit pkgs;};
+    callPkg = path: import (path + /package.nix) {inherit pkgs;};
   in {
     apps = {
       prefetch-url-sha256 = callApps ./prefetch-url-sha256;
@@ -9,6 +10,10 @@
       mount-local-disks = callApps ./mount-local-disks;
       upgrade-postgresql = callApps ./upgrade-postgresql;
       check-store-errors = callApps ./check-store-errors;
+    };
+
+    packages = {
+      exiled-exchange-2 = callPkg ./exiled-exchange-2;
     };
   };
 }

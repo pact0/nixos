@@ -98,6 +98,11 @@
       "match:tag apt, float true"
       "match:tag apt, no_blur on"
 
+      # PoE2
+      "match:title (Exiled Exchange 2), workspace unset, tag +apt2, tag +media"
+      "match:tag apt2, float true"
+      "match:tag apt2, no_blur on"
+
       # pavucontrol
       "match:class (pavucontrol), float true"
       "match:title ^(Volume Control)$, float true"

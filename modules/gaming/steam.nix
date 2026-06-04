@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs = {
     gamescope = {
       enable = true;
@@ -36,6 +40,19 @@
       buildInputs = [pkgs.makeWrapper];
       postBuild = ''
         wrapProgram $out/bin/awakened-poe-trade \
+          --set XDG_SESSION_TYPE x11 \
+          --add-flags "--ozone-platform=x11 --force-device-scale-factor=1"
+      '';
+    })
+
+    (pkgs.symlinkJoin {
+      name = "exiled-exchange-2-wrapped";
+      paths = [inputs.self.packages.${pkgs.system}.exiled-exchange-2];
+
+      nativeBuildInputs = [pkgs.makeWrapper];
+
+      postBuild = ''
+        wrapProgram $out/bin/exiled-exchange-2 \
           --set XDG_SESSION_TYPE x11 \
           --add-flags "--ozone-platform=x11 --force-device-scale-factor=1"
       '';
