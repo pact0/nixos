@@ -1,4 +1,10 @@
-{inputs, ...}: {
+{
+  inputs,
+  osConfig,
+  ...
+}: let
+  dmsOpts = osConfig.monitors.dms or {};
+in {
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms-plugin-registry.modules.default
@@ -21,10 +27,7 @@
       doNotDisturb = false;
       wallpaperPath = "";
       perMonitorWallpaper = true;
-      monitorWallpapers = {
-        DP-1 = "/home/pacto/wallpapers/wallhaven-5gwvz5.jpg";
-        DP-2 = "/home/pacto/wallpapers/wallhaven-9o8k9w.jpg";
-      };
+      monitorWallpapers = dmsOpts.monitorWallpapers;
       perModeWallpaper = false;
       wallpaperPathLight = "";
       wallpaperPathDark = "";
@@ -506,43 +509,8 @@
       updaterCustomCommand = "";
       updaterTerminalAdditionalParams = "";
       displayNameMode = "system";
-      screenPreferences = {
-        dock = [];
-        notepad = [
-          {
-            model = "LG HDR WQHD";
-            name = "DP-1";
-          }
-        ];
-        notifications = [
-          {
-            model = "LG HDR WQHD";
-            name = "DP-1";
-          }
-        ];
-        osd = [
-          {
-            model = "LG HDR WQHD";
-            name = "DP-1";
-          }
-        ];
-        toast = [
-          {
-            model = "LG HDR WQHD";
-            name = "DP-1";
-          }
-        ];
-        wallpaper = [
-          "all"
-        ];
-      };
-      showOnLastDisplay = {
-        dock = false;
-        notepad = true;
-        notifications = true;
-        osd = true;
-        toast = true;
-      };
+      screenPreferences = dmsOpts.screenPreferences;
+      showOnLastDisplay = dmsOpts.showOnLastDisplay;
       niriOutputSettings = {};
       hyprlandOutputSettings = {};
       displayProfiles = {};
@@ -624,12 +592,7 @@
               enabled = true;
             }
           ];
-          screenPreferences = [
-            {
-              model = "LG HDR WQHD";
-              name = "DP-1";
-            }
-          ];
+          screenPreferences = dmsOpts.barScreenPreferences;
           shadowIntensity = 0;
           showOnLastDisplay = true;
           spacing = 0;

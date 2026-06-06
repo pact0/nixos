@@ -9,52 +9,33 @@
 
   networking.hostName = "nixos";
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  monitors = {
+    kanshi = {
+      enable = true;
+      profiles = [
+        {
+          profile = {
+            name = "Main";
+            outputs = [
+              {
+                criteria = "LG Electronics LG HDR WQHD 0x000A9219";
+                position = "1920,0";
+                mode = "3440x1440@75.05Hz";
+              }
+              {
+                criteria = "BNQ ZOWIE XL LCD 47G00713SL0";
+                position = "0,0";
+                mode = "1920x1080@60Hz";
+              }
+            ];
+          };
+        }
+      ];
+    };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  #
-  # # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us";
-  #   variant = "";
-  # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Enable automatic login for the user.
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "pacto";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  # systemd.services."getty@tty1".enable = false;
-  # systemd.services."autovt@tty1".enable = false;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+    dms.monitorWallpapers = {
+      DP-1 = "/home/pacto/wallpapers/wallhaven-5gwvz5.jpg";
+      DP-2 = "/home/pacto/wallpapers/wallhaven-9o8k9w.jpg";
+    };
+  };
 }

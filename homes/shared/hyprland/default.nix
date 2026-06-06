@@ -2,7 +2,7 @@
   imports = [
     ./binds.nix
     ./settings.nix
-    ./monitors.nix
+    # ./monitors.nix
     ./input.nix
     ./exec-once.nix
     ./decorations.nix

@@ -62,6 +62,11 @@
               # _module.args.baseModules = import "${modulesPath}/module-list.nix";
             })
 
+            # always apply these modules to every host
+            (singleton ../modules)
+            (singleton ../options)
+            (singleton ../homes)
+
             # if host needs additional modules, append them
             (args.modules or [])
           ];
@@ -78,9 +83,6 @@
 
         # inputs.disko.nixosModules.disko
         # (import ./disko.nix {disc = "dev/sda";})
-
-        ../modules
-        ../homes
       ];
       # modules = mkModulesFor "nixos" {
       #   roles = [graphical workstation];
@@ -96,9 +98,6 @@
         #inputs.lanzaboote.nixosModules.lanzaboote
 
         ./nixos
-
-        ../modules
-        ../homes
       ];
       # modules = mkModulesFor "nixos" {
       #   roles = [graphical workstation];
@@ -114,9 +113,6 @@
         #inputs.lanzaboote.nixosModules.lanzaboote
 
         ./legion
-
-        ../modules
-        ../homes
       ];
       # modules = mkModulesFor "nixos" {
       #   roles = [graphical workstation];
