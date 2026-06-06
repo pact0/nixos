@@ -105,5 +105,23 @@
       #   extraModules = [shared homes];
       # };
     };
+
+    legion = mkNixosSystem {
+      inherit withSystem;
+      hostname = "legion";
+      system = "x86_64-linux";
+      modules = [
+        #inputs.lanzaboote.nixosModules.lanzaboote
+
+        ./legion
+
+        ../modules
+        ../homes
+      ];
+      # modules = mkModulesFor "nixos" {
+      #   roles = [graphical workstation];
+      #   extraModules = [shared homes];
+      # };
+    };
   };
 }
