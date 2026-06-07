@@ -26,7 +26,7 @@
                 criteria = "Chimei Innolux Corporation 0x15E8";
                 position = "1920,0";
                 mode = "1920x1080@60Hz";
-                scale = 1.5;
+                # scale = 1.5;
               }
             ];
           };
@@ -38,7 +38,7 @@
               {
                 criteria = "Chimei Innolux Corporation 0x15E8";
                 status = "enable";
-                scale = 1.5;
+                # scale = 1.5;
               }
             ];
           };
