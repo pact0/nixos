@@ -2,7 +2,7 @@
   users.users.pacto = {
     isNormalUser = true;
     description = "pacto";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
   };
 
   home-manager = {
@@ -11,7 +11,7 @@
         home = {
           username = "pacto";
           homeDirectory = "/home/pacto";
-          stateVersion = "26.05";
+          stateVersion = "26.11";
         };
 
         programs = {

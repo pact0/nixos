@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   osConfig,
   ...
@@ -7,12 +8,13 @@
 in {
   imports = [
     inputs.dms.homeModules.dank-material-shell
-    inputs.dms-plugin-registry.modules.default
+    inputs.dms-plugin-registry.homeModules.default
   ];
 
   programs.dank-material-shell = {
     enable = true;
     systemd.enable = true;
+    quickshell.package = pkgs.quickshell;
 
     # Core features
     enableSystemMonitoring = true; # System monitoring widgets (dgop)
@@ -510,7 +512,13 @@ in {
       updaterTerminalAdditionalParams = "";
       displayNameMode = "system";
       screenPreferences = dmsOpts.screenPreferences;
-      showOnLastDisplay = dmsOpts.showOnLastDisplay;
+      showOnLastDisplay = {
+        dock = false;
+        notepad = true;
+        notifications = true;
+        osd = true;
+        toast = true;
+      };
       niriOutputSettings = {};
       hyprlandOutputSettings = {};
       displayProfiles = {};

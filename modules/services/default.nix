@@ -5,6 +5,8 @@
     ./printing.nix
     ./location.nix
     ./earlyoom.nix
+
+    ./virtualisation.nix
   ];
 
   services.openssh = {

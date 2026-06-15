@@ -103,7 +103,7 @@
 
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "dms";
     };
 
     tailray = {
