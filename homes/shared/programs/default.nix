@@ -8,6 +8,8 @@
 
     ./thunar.nix
     ./streamdeck.nix
+
+    ./koreader.nix
   ];
 
   home.packages = with pkgs; [

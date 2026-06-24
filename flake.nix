@@ -72,6 +72,7 @@
 
     nvf = {
       url = "github:pact0/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     yazi.url = "github:sxyazi/yazi";
