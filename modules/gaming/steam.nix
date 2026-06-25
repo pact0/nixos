@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  inputs',
   ...
 }: {
   programs = {
@@ -48,7 +47,7 @@
 
     (pkgs.symlinkJoin {
       name = "exiled-exchange-2-wrapped";
-      paths = [inputs.self.packages.${pkgs.system}.exiled-exchange-2];
+      paths = [inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.exiled-exchange-2];
 
       nativeBuildInputs = [pkgs.makeWrapper];
 
