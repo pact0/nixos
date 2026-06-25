@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  # firefox-addons = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
   firefox-addons = inputs'.firefox-addons.packages;
 in {
   # home.nix

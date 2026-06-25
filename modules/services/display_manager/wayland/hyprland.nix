@@ -1,11 +1,4 @@
-{
-  inputs',
-  inputs,
-  pkgs,
-  ...
-}: let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+{inputs', ...}: {
   programs.hyprland = {
     enable = true;
     package = inputs'.hyprland.packages.hyprland;
