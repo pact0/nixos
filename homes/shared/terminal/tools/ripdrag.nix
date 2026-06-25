@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  home.programs = [pkgs.ripdrag];
+  home.packages = [pkgs.ripdrag];
 }

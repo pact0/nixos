@@ -15,6 +15,7 @@
     ./ripgrep.nix
     ./tmux.nix
     ./zoxide.nix
+    ./zip.nix
 
     ./neovim.nix
     ./television.nix
