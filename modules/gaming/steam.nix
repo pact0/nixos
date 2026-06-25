@@ -60,13 +60,13 @@
     })
 
     (pkgs.writeShellScriptBin "pob1" ''
-      ${pkgs.path-of-building}/bin/rusty-path-of-building \
+      ${pkgs.rusty-path-of-building}/bin/rusty-path-of-building \
         poe1 \
         "$@"
     '')
 
     (pkgs.writeShellScriptBin "pob2" ''
-      ${pkgs.path-of-building}/bin/rusty-path-of-building \
+      ${pkgs.rusty-path-of-building}/bin/rusty-path-of-building \
         poe2 \
         "$@"
     '')
