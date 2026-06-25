@@ -54,7 +54,7 @@
             (singleton {
               networking.hostName = args.hostname;
               nixpkgs = {
-                hostPlatform = mkDefault args.system;
+                system = mkDefault args.system;
                 flake.source = nixpkgs.outPath;
               };
 

@@ -70,7 +70,7 @@
       fs = callLibs ./fs.nix;
 
       # Checks and assertions for validating hardware capabilities of any given
-      # host. Generally wraps around pkgs.stdenv.hostPlatform, but with additional
+      # host. Generally wraps around pkgs.stdenv.system, but with additional
       # checks for validating host architecture and so on.
       hardware = callLibs ./hardware.nix;
 
