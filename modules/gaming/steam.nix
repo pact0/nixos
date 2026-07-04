@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  inputs',
   ...
 }: {
   programs = {
@@ -36,7 +37,7 @@
   environment.systemPackages = with pkgs; [
     (pkgs.symlinkJoin {
       name = "awakened-poe-trade-wrapped";
-      paths = [pkgs.awakened-poe-trade];
+      paths = [inputs'.nixpkgs-small.legacyPackages.awakened-poe-trade];
       buildInputs = [pkgs.makeWrapper];
       postBuild = ''
         wrapProgram $out/bin/awakened-poe-trade \

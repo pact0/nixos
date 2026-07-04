@@ -31,6 +31,9 @@
         "$mod,S,submap,resize"
         "$mod Shift,M,submap,media"
         "$mod Shift,S,submap,move"
+
+        "$mod,T,togglegroup," # group focused window
+        "$mod Shift,G,changegroupactive," # switch within the active group
       ]
       ++ (
         # workspaces
