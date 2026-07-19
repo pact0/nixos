@@ -22,7 +22,7 @@ in {
       pkgs.webp-pixbuf-loader
       pkgs.gnome-epub-thumbnailer
       pkgs.mcomix
-      pkgs.f3d
+      # pkgs.f3d # this compiles from source for ages for some reason
       pkgs.xfconf
       pkgs.libheif
       pkgs.gdk-pixbuf

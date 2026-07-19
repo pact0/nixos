@@ -3,6 +3,7 @@
     ./terminal
     ./communicators
     ./media
+    ./editing
 
     ./launchers
 

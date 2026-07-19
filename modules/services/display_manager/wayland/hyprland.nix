@@ -1,4 +1,8 @@
-{inputs', ...}: {
+{
+  inputs',
+  pkgs,
+  ...
+}: {
   programs.hyprland = {
     enable = true;
     package = inputs'.hyprland.packages.hyprland;
@@ -16,6 +20,9 @@
 
     # if you also want 32-bit support (e.g for Steam)
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
   };
 
   environment.variables.NIXOS_OZONE_WL = "1";
