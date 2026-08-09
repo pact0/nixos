@@ -74,6 +74,7 @@
       url = "github:pact0/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     yazi.url = "github:sxyazi/yazi";
 

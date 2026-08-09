@@ -3,6 +3,8 @@
     ./git
     ./yazi
 
+    # ./emacs.nix
+
     ./bat.nix
     ./bottom.nix
     ./dircolors.nix
