@@ -1,56 +1,47 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (config.wayland.windowManager.hyprland.settings.general) gaps_in gaps_out border_size;
-  inherit (config.wayland.windowManager.hyprland.settings.decoration) rounding;
-  inherit (builtins) concatStringsSep;
-  inherit (lib.lists) flatten;
-
+let
   workspaceSelectors = [
     "w[t1]"
     "w[tg1]"
     "f[1]"
   ];
-
-  toggleSmartGaps = let
-    forEach = f: concatStringsSep "\n" (map f workspaceSelectors);
-  in
-    pkgs.writeShellScript "toggleSmartGaps" ''
-      hyprctl -j workspacerules | ${lib.getExe pkgs.jaq} -e 'any(.[]; select(.workspaceString == "w[t1]" or .workspaceString == "w[tg1]" or .workspaceString == "w[f1]") | (.gapsIn | all(. == 0)) and (.gapsOut | all(. == 0)))' > /dev/null
-
-      if [ $? -eq 0 ]; then
-      ${forEach (selector: ''
-        hyprctl keyword workspace "${selector}, gapsout:${toString gaps_out}, gapsin:${toString gaps_in}"
-        hyprctl keyword windowrule "border_size ${toString border_size}, match:float false, match:workspace ${selector}"
-        hyprctl keyword windowrule "rounding ${toString rounding}, match:float false, match:workspace ${selector}"
-      '')}
-      else
-      ${forEach (selector: ''
-        hyprctl keyword workspace "${selector}, gapsout:0, gapsin:0"
-        hyprctl keyword windowrule "border_size 0, match:float false, match:workspace ${selector}"
-        hyprctl keyword windowrule "rounding 0, match:float false, match:workspace ${selector}"
-      '')}
-      fi
-    '';
 in {
   # Ref https://wiki.hyprland.org/Configuring/Workspace-Rules/
   # "Smart gaps" / "No gaps when only"
-  wayland.windowManager.hyprland.settings = {
-    workspace = map (x: "${x}, gapsout:0, gapsin:0") workspaceSelectors;
+  wayland.windowManager.hyprland.extraConfig = ''
+    local smartgapsSelectors = {
+      ${builtins.concatStringsSep "\n" (map (s: "  \"${s}\",") workspaceSelectors)}
+    }
+    local smartgapsWorkspaceRules = {}
+    local smartgapsWindowRules = {}
 
-    windowrule = flatten (
-      map (x: [
-        "border_size 0, match:float false, match:workspace ${x}"
-        "rounding 0, match:float false, match:workspace ${x}"
-      ])
-      workspaceSelectors
-    );
+    for _, ws in ipairs(smartgapsSelectors) do
+      table.insert(smartgapsWorkspaceRules, hl.workspace_rule({
+        workspace = ws,
+        gaps_out = 0,
+        gaps_in = 0,
+      }))
+      table.insert(smartgapsWindowRules, hl.window_rule({
+        name = "smartgaps-border-" .. ws,
+        match = { float = false, workspace = ws },
+        border_size = 0,
+      }))
+      table.insert(smartgapsWindowRules, hl.window_rule({
+        name = "smartgaps-rounding-" .. ws,
+        match = { float = false, workspace = ws },
+        rounding = 0,
+      }))
+    end
 
-    bind = [
-      "$mod, M, exec, ${toggleSmartGaps}"
-    ];
-  };
+    local function toggleSmartGaps()
+      local enable = not smartgapsWorkspaceRules[1]:is_enabled()
+      for _, rule in ipairs(smartgapsWorkspaceRules) do
+        rule:set_enabled(enable)
+      end
+      for _, rule in ipairs(smartgapsWindowRules) do
+        rule:set_enabled(enable)
+      end
+    end
+
+    hl.bind(mod .. " + M", toggleSmartGaps)
+  '';
 }

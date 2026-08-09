@@ -1,12 +1,12 @@
 {
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings.config = {
     input = {
       # keyboard layout
       kb_layout = "pl,us";
       # self explanatory, I hope?
       follow_mouse = 1;
       # do not imitate natural scroll
-      touchpad.natural_scroll = "no";
+      touchpad.natural_scroll = false;
       # ez numlock enable
       numlock_by_default = true;
 
