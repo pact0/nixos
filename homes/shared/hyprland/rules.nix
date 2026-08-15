@@ -88,7 +88,7 @@ in {
         workspace = "special:silent";
       }
       {
-        match.title = "^(.*is sharing (your screen|a window)\.)$";
+        match.title = "^(.*is sharing (your screen|a window)\\.)$";
         workspace = "special:silent";
       }
 

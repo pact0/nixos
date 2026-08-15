@@ -23,7 +23,7 @@ in {
     cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
     bloat = "nix path-info -Sh /run/current-system";
     curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-    gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\w+-system|\{memory|/proc)\"";
+    gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\\w+-system|\\{memory|/proc)\"";
     repair = "nix-store --verify --check-contents --repair";
     run = "nix run";
     search = "nix search";

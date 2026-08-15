@@ -32,8 +32,8 @@
       ];
 
       ignoredPatterns = [
-        "r'.+\.zsh$'"
-        "r'.+\.age$'"
+        "r'.+\\.zsh$'"
+        "r'.+\\.age$'"
       ];
 
       excludedFiles = concatLists [ignoredFiles ignoredPatterns];
