@@ -2,7 +2,11 @@
   users.users.pacto = {
     isNormalUser = true;
     description = "pacto";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "media"];
+  };
+
+  users.groups.media = {
+    gid = 1001;
   };
 
   home-manager = {
