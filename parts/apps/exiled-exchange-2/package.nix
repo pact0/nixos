@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-THhGsptgZ90WU/ZXVWR/P5wV24uAFM5OGUgBUAhywMs=";
   };
 
-  passthru.appImageContents = pkgs.appimageTools.extractType2 {
+  passthru.appImageContents = pkgs.appimageTools.extract {
     inherit (finalAttrs) pname src version;
   };
 
