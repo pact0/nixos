@@ -7,6 +7,7 @@
   programs = {
     gamescope = {
       enable = true;
+      enableWsi = true;
       capSysNice = true;
       args = [
         "--rt"
@@ -21,7 +22,13 @@
         pkgs.proton-ge-bin
       ];
 
-      gamescopeSession.enable = true;
+      gamescopeSession = {
+        enable = true;
+        args = [
+          "--rt"
+          "--expose-wayland"
+        ];
+      };
     };
 
     gamemode = {
