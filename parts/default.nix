@@ -9,7 +9,7 @@
     # ./checks # Checks that will be built when `nix flake check is run`
     # ./lib # Extensible extended library built on top of `nixpkgs.lib`
     ./modules # NixOS and Home-Manager modules provided by the flake
-    # ./pkgs # Per-system packages exposed by the flake
+    ./pkgs # Per-system packages exposed by the flake
     ./pre-commit # Pre-commit hooks, to be ran before changes are committed.
     # ./topology # Topology graph generation
 

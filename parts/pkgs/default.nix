@@ -18,7 +18,7 @@
       })
 
       {
-        microvm = self.nixosConfigurations.microvm.config.microvm.declaredRunner;
+        # microvm = self.nixosConfigurations.microvm.config.microvm.declaredRunner;
       }
     ];
   };

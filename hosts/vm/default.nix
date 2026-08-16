@@ -9,6 +9,12 @@
 
   networking.hostName = "nixos-vm";
 
+  bootcfg = {
+    availableKernelModules = ["ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod"];
+    kernel = "latest";
+    plymouth.enable = false;
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

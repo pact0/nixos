@@ -56,6 +56,7 @@
               nixpkgs = {
                 system = mkDefault args.system;
                 flake.source = nixpkgs.outPath;
+                overlays = [self.overlays.default];
               };
 
               # set baseModules in the place of nixos/lib/eval-config.nix's default argument
