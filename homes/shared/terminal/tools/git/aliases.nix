@@ -1,5 +1,5 @@
 {
-  programs.git.settings.aliases = {
+  programs.git.settings.alias = {
     br = "branch";
     ca = "commit -am";
     co = "checkout";

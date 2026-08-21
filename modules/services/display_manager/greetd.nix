@@ -1,24 +1,29 @@
 {
-  config,
+  pkgs,
   lib,
+  config,
   ...
 }: {
-  # greetd display manager
+  # greetd display manager with a terminal (tuigreet) login screen
   services.greetd = let
-    session = {
-      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
-      user = "pacto";
-    };
+    sessionCmd = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
   in {
     enable = true;
     settings = {
       terminal.vt = 1;
-      default_session = session;
-      initial_session = session;
+      default_session = {
+        command =
+          "${lib.getExe pkgs.tuigreet} --time --remember --asterisks --cmd "
+          + lib.escapeShellArg sessionCmd;
+        user = "greeter";
+      };
     };
   };
 
-  # unlock GPG keyring on login
-  # disabled as it doesn't work with autologin
-  # security.pam.services.greetd.enableGnomeKeyring = true;
+  # dedicated unprivileged user the greeter runs as
+  users.groups.greeter = {};
+  users.users.greeter = {
+    isSystemUser = true;
+    group = "greeter";
+  };
 }
