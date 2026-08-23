@@ -121,6 +121,7 @@
     inherit (self.extendedLib.ci) mkGithubMatrix;
     inherit (self.extendedLib.dag) entryBefore entryBetween entryAfter entryAnywhere topoSort dagOf;
     inherit (self.extendedLib.deploy) mkNode;
+    inherit (self.extendedLib.deploy) mkNode;
     inherit (self.extendedLib.firewall) mkTable mkRuleset mkIngressChain mkPrerouteChain mkInputChain mkForwardChain mkOutputChain mkPostrouteChain;
     inherit (self.extendedLib.fs) mkBtrfs;
     inherit (self.extendedLib.hardware) isx86Linux primaryMonitor;

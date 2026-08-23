@@ -15,6 +15,15 @@
     plymouth.enable = false;
   };
 
+  # A simple service managed by deploy-rs
+  systemd.services."hello-service" = {
+    enable = true;
+    script = ''
+      echo "Hello from deploy-rs deployed service!"
+    '';
+    wantedBy = ["multi-user.target"];
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,14 +56,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    neovim
-    kitty
-    git
-    waybar
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   wget
+  #   neovim
+  #   kitty
+  #   git
+  #   waybar
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
