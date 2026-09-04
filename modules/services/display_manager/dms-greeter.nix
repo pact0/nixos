@@ -1,9 +1,10 @@
 {inputs, ...}: {
   imports = [
-    inputs.dms.nixosModules.greeter
+    # inputs.dms.nixosModules.greeter
+    inputs.dank-greeter.nixosModules.default
   ];
 
-  programs.dank-material-shell.greeter = {
+  programs.dms-greeter = {
     enable = true;
     compositor.name = "hyprland";
     # Hyprland 0.55+ is lua-only: the default hyprlang temp config fails to

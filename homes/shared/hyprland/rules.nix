@@ -254,7 +254,7 @@ in {
       }
 
       {
-        match.title = "^(Bitwarden)$";
+        match.class = "^(bitwarden)$";
         float = true;
       }
       {
@@ -262,7 +262,7 @@ in {
         float = true;
       }
       {
-        match.title = "^(.*(Disc|WebC)ord.*)$";
+        match.class = "^(vesktop)$";
         float = true;
       }
       {

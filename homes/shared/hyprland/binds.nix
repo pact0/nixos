@@ -61,13 +61,13 @@
         # fullscreen
         {
           _args = [
-            "SUPER + Z"
+            "SUPER + SHIFT + Z"
             (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\" })")
           ];
         }
         {
           _args = [
-            "SUPER + SHIFT + Z"
+            "SUPER + Z"
             (lib.generators.mkLuaInline "hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\" })")
           ];
         }
