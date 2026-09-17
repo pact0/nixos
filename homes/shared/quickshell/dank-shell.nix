@@ -29,7 +29,7 @@ in {
       doNotDisturb = false;
       wallpaperPath = "";
       perMonitorWallpaper = true;
-      monitorWallpapers = dmsOpts.monitorWallpapers;
+      inherit (dmsOpts) monitorWallpapers;
       perModeWallpaper = false;
       wallpaperPathLight = "";
       wallpaperPathDark = "";
@@ -511,7 +511,7 @@ in {
       updaterCustomCommand = "";
       updaterTerminalAdditionalParams = "";
       displayNameMode = "system";
-      screenPreferences = dmsOpts.screenPreferences;
+      inherit (dmsOpts) screenPreferences;
       showOnLastDisplay = {
         dock = false;
         notepad = true;

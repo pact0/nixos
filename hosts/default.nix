@@ -33,7 +33,6 @@
     mkNixosSystem = {
       withSystem,
       system,
-      hostname,
       ...
     } @ args:
       withSystem system ({

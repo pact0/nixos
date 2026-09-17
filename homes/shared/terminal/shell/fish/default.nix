@@ -1,12 +1,9 @@
 {
   lib,
   pkgs,
-  config,
-  osConfig,
   ...
 }: let
   inherit (lib.modules) mkForce;
-  cfg = osConfig.modules.system.impermanence;
 
   pluginNames = ["grc" "z" "fzf-fish" "done" "forgit" "autopair" "bass"];
 
@@ -39,7 +36,7 @@ in {
           '';
         };
 
-        plugins = plugins;
+        inherit plugins;
       };
 
       autojump.enableFishIntegration = true;

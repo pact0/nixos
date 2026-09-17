@@ -1,10 +1,9 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
 }: let
-  quickshell = pkgs.quickshell;
+  inherit (pkgs) quickshell;
 
   dependencies = with pkgs;
     [

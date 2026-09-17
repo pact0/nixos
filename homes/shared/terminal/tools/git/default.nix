@@ -1,12 +1,5 @@
-{
-  osConfig,
-  pkgs,
-  ...
-}: let
-  inherit (osConfig) modules;
-
+{pkgs, ...}: let
   gitPackage = pkgs.gitFull;
-  cfg = modules.system.programs.git;
 in {
   imports = [
     ./aliases.nix

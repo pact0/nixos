@@ -17,7 +17,7 @@
 
   # ifOneEnabled takes a parent option and 3 child options and checks if at least one of them is enabled
   # `ifOneEnabled config.modules.services "service1" "service2" "service3"`
-  ifOneEnabled = cfg: a: b: c: (cfg.a || cfg.b || cfg.c);
+  ifOneEnabled = cfg: _a: _b: _c: (cfg.a || cfg.b || cfg.c);
 in {
   inherit ifTheyExist ifGroupsExist isAcceptedDevice isWayland ifOneEnabled;
 }

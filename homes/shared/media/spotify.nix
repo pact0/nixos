@@ -1,7 +1,6 @@
 {
   inputs,
   inputs',
-  pkgs,
   ...
 }: let
   spicePkgs = inputs'.spicetify.legacyPackages;

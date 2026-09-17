@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   users.users.pacto = {
     isNormalUser = true;
     description = "pacto";

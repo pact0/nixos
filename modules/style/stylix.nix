@@ -1,10 +1,8 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }: let
-  inherit (lib) mkForce;
   font = {
     package = pkgs.nerd-fonts.hack;
     name = "Hack";

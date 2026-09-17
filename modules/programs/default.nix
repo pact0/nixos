@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+_: {
   imports = [
   ];
   environment.systemPackages = [

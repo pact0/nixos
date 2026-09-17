@@ -1,4 +1,4 @@
-{lib, ...}: {
+_: {
   nixpkgs = {
     config = {
       allowBroken = false;

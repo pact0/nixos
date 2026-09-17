@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+_: {
   wayland.windowManager.hyprland = {
     plugins = [
     ];

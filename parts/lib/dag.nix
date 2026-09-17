@@ -95,18 +95,18 @@
     #    true
     topoSort = dag: let
       dagBefore = dag: name:
-        mapAttrsToList (n: v: n) (
-          filterAttrs (n: v: any (a: a == name) v.before) dag
+        mapAttrsToList (n: _v: n) (
+          filterAttrs (_n: v: any (a: a == name) v.before) dag
         );
       normalizedDag =
         mapAttrs (n: v: {
           name = n;
-          data = v.data;
+          inherit (v) data;
           after = v.after ++ dagBefore dag n;
         })
         dag;
       before = a: b: any (c: a.name == c) b.after;
-      sorted = toposort before (mapAttrsToList (n: v: v) normalizedDag);
+      sorted = toposort before (mapAttrsToList (_n: v: v) normalizedDag);
     in
       if sorted ? result
       then {result = map (v: {inherit (v) name data;}) sorted.result;}

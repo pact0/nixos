@@ -1,16 +1,4 @@
-{
-  osConfig,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib.modules) mkIf mkMerge;
-  inherit (osConfig) modules;
-
-  env = modules.usrEnv;
-  prg = env.programs;
-  # low1k = import ./low1k.nix {inherit pkgs;};
-in {
+{pkgs, ...}: {
   config = {
     home.packages = with pkgs; [
       python314Packages.subliminal

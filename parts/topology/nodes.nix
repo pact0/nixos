@@ -3,7 +3,6 @@
     (config.lib.topology)
     mkInternet
     mkRouter
-    mkSwitch
     mkConnection
     ;
 in {
