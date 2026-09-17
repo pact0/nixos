@@ -3,6 +3,7 @@
     inputs.git-hooks.flakeModule
 
     ./hooks/exiftool.nix
+    ./hooks/gitleaks.nix
     ./hooks/prettier.nix
     # ./hooks/typos.nix
 
