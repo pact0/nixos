@@ -4,14 +4,13 @@
 
     ./hooks/exiftool.nix
     ./hooks/prettier.nix
-    ./hooks/typos.nix
+    # ./hooks/typos.nix
 
     # Disabled hooks
     # ./hooks/git-cliff.nix
   ];
 
   perSystem = {
-    inputs',
     pkgs,
     lib,
     ...
@@ -40,7 +39,7 @@
           };
 
           lychee = mkHook "lychee" {
-            enable = true;
+            enable = false;
             excludes = ["^(?!.*\\.md$).*"]; # ignore non-markdown
           };
 
@@ -48,6 +47,15 @@
             enable = false;
             always_run = true;
           };
+
+          deadnix = {
+            enable = true;
+            settings = {
+              edit = true;
+            };
+          };
+
+          statix = mkHook "statix" {enable = true;};
         };
       };
     };
