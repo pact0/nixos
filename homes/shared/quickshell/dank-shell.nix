@@ -695,7 +695,6 @@ in {
 
     plugins = {
       # Simply enable plugins by their ID (from the registry)
-      dankBatteryAlerts.enable = true;
       dockerManager.enable = true;
       nextBootSelector.enable = true;
       amdGpuMonitor.enable = true;

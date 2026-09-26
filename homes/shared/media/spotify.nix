@@ -16,7 +16,7 @@ in {
         songStats
         shuffle
         history
-        betterGenres
+        # betterGenres
         fullScreen
         keyboardShortcut
       ];
