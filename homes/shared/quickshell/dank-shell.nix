@@ -699,7 +699,6 @@ in {
       nextBootSelector.enable = true;
       amdGpuMonitor.enable = true;
       dankHyprlandWindows.enable = true;
-      hyprlandSubmap.enable = true;
 
       # Add plugin-specific settings
       mediaPlayer = {
