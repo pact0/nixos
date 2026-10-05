@@ -62,10 +62,8 @@
               # _module.args.baseModules = import "${modulesPath}/module-list.nix";
             })
 
-            # always apply these modules to every host
-            (singleton ../modules)
+            # always apply the global options to every host
             (singleton ../options)
-            (singleton ../homes)
 
             # if host needs additional modules, append them
             (args.modules or [])
@@ -77,17 +75,13 @@
       hostname = "nixos-vm";
       system = "x86_64-linux";
       modules = [
-        inputs.lanzaboote.nixosModules.lanzaboote
+        self.nixosModules.nix
+        self.nixosModules.system-locale
+        self.nixosModules.network-ssh
+        self.nixosModules.services-earlyoom
 
-        ./vm
-
-        # inputs.disko.nixosModules.disko
-        # (import ./disko.nix {disc = "dev/sda";})
+        ./server
       ];
-      # modules = mkModulesFor "nixos" {
-      #   roles = [graphical workstation];
-      #   extraModules = [shared homes];
-      # };
     };
 
     nixos = mkNixosSystem {
@@ -95,14 +89,18 @@
       hostname = "nixos";
       system = "x86_64-linux";
       modules = [
-        #inputs.lanzaboote.nixosModules.lanzaboote
+        self.nixosModules.audio
+        self.nixosModules.gaming
+        self.nixosModules.network
+        self.nixosModules.nix
+        self.nixosModules.services
+        self.nixosModules.style
+        self.nixosModules.system
+
+        ../homes
 
         ./nixos
       ];
-      # modules = mkModulesFor "nixos" {
-      #   roles = [graphical workstation];
-      #   extraModules = [shared homes];
-      # };
     };
 
     legion = mkNixosSystem {
@@ -110,14 +108,18 @@
       hostname = "legion";
       system = "x86_64-linux";
       modules = [
-        #inputs.lanzaboote.nixosModules.lanzaboote
+        self.nixosModules.audio
+        self.nixosModules.gaming
+        self.nixosModules.network
+        self.nixosModules.nix
+        self.nixosModules.services
+        self.nixosModules.style
+        self.nixosModules.system
+
+        ../homes
 
         ./legion
       ];
-      # modules = mkModulesFor "nixos" {
-      #   roles = [graphical workstation];
-      #   extraModules = [shared homes];
-      # };
     };
   };
 }

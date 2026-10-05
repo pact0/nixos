@@ -2,7 +2,7 @@
   imports = [
     ./avahi.nix
     ./tailscale.nix
-    ./ssh.nix
+    ./ssh
     ./bluetooth.nix
     ./nfs.nix
   ];
