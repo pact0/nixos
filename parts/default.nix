@@ -18,7 +18,6 @@
     # ./deployments.nix # deploy-rs configurations for active hosts
     # ./hydra.nix # Hydra build jobs to be evaluated on each commit
     ./fmt.nix # Formatter configurations via Treefmt
-    # ./iso-images.nix # Build recipes for local installation media
     ./shell.nix # devShells exposed by the flake
   ];
 }

@@ -121,5 +121,18 @@
         ./legion
       ];
     };
+
+    live = mkNixosSystem {
+      inherit withSystem;
+      hostname = "nixos-live";
+      system = "x86_64-linux";
+      modules = [
+        self.nixosModules.nix
+        self.nixosModules.network-ssh
+        self.nixosModules.system-size-reduction
+
+        ./live
+      ];
+    };
   };
 }
