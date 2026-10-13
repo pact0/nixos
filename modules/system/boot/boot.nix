@@ -23,6 +23,7 @@ in {
     kernelParams =
       [
         "quiet"
+        "nowatchdog" # disable watchdog timers (can block/panic on some boards)
         "systemd.show_status=auto"
         "rd.udev.log_level=3"
       ]
@@ -51,4 +52,7 @@ in {
   stylix.targets.plymouth.enable = lib.mkIf plymouthCfg.enable false;
 
   environment.systemPackages = [config.boot.kernelPackages.cpupower];
+
+  # don't linger the full 90s on a stuck unit at poweroff
+  systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 }

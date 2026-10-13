@@ -11,6 +11,9 @@
       "noauto"
       "soft"
       "timeo=30"
+
+      "x-systemd.after=network-online.target"
+      "x-systemd.wants=network-online.target"
     ];
   };
 }

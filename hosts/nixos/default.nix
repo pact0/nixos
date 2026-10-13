@@ -3,6 +3,9 @@ _: {
     ./hardware.nix
   ];
 
+  bootcfg.plymouth.enable = false;
+  boot.loader.timeout = 0;
+
   networking.hostName = "nixos";
 
   monitors = {
