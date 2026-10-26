@@ -8,7 +8,7 @@
 in {
   boot = {
     initrd = {
-      systemd.enable = true;
+      # systemd.enable = true; # WARN: No longer has any effect
       supportedFilesystems = ["ext4"];
 
       availableKernelModules = config.bootcfg.availableKernelModules;

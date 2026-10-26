@@ -18,6 +18,7 @@ _: {
     ./tmux.nix
     ./zoxide.nix
     ./zip.nix
+    ./graph.nix
 
     ./neovim.nix
     ./television.nix
