@@ -79,6 +79,7 @@
         self.nixosModules.system-locale
         self.nixosModules.network-ssh
         self.nixosModules.services-earlyoom
+        self.nixosModules.services-harmonia
 
         ./server
       ];

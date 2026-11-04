@@ -10,6 +10,11 @@
       "https://nix-gaming.cachix.org"
       "https://yazi.cachix.org"
       "https://vicinae.cachix.org"
+
+      # Local Harmonia cache running on the server (hosts/server, 192.168.1.247).
+      # Generate the signing key on the server, then uncomment this URL and add
+      # the contents of /var/lib/secrets/harmonia.pub to trusted-public-keys.
+      # "http://192.168.1.247:5000?priority=40"
     ];
 
     trusted-public-keys = [
@@ -21,6 +26,9 @@
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
+
+      # Paste the public key printed by `cat /var/lib/secrets/harmonia.pub`
+      # on the server, e.g. "nixos-vm-1:AAAA...".
     ];
   };
 }
